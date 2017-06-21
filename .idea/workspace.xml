@@ -755,6 +755,9 @@
     <history-entry file="apiTest - 2017.06.21 at 17h 00m 19s.xml">
       <configuration name="apiTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="apiTest - 2017.06.21 at 18h 22m 28s.xml">
+      <configuration name="apiTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
