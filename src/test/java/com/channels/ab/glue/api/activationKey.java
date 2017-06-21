@@ -9,6 +9,7 @@ import cucumber.api.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
+import org.junit.Assert;
 
 import java.io.File;
 import java.util.Scanner;
@@ -118,10 +119,8 @@ public class activationKey extends RestAssuredConfig {
 
     @Then("^user should be registered successfully$")
     public void user_should_be_registered_successfully() throws Throwable {
-        System.out.println("Test");
-
-        System.out.println("Test");
-
+        System.out.println("");
         System.out.println(response);
+        Assert.assertTrue(response.contains("Success"));
     }
 }

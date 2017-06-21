@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 1001310188,
+              "duration": 1205264133,
               "status": "passed"
             },
             "match": {
@@ -15,15 +15,15 @@
           }
         ],
         "line": 18,
-        "name": "Validate activation key is generated successfully",
+        "name": "Validate user is able to register himself successfully",
         "description": "",
-        "id": "generate-activation-key-and-jwt;validate-activation-key-is-generated-successfully",
+        "id": "generate-activation-key-and-jwt;validate-user-is-able-to-register-himself-successfully",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 177605631,
+              "duration": 310935068,
               "status": "passed"
             },
             "line": 19,
@@ -41,7 +41,7 @@
           },
           {
             "result": {
-              "duration": 14826407,
+              "duration": 30027266,
               "status": "passed"
             },
             "line": 20,
@@ -53,7 +53,7 @@
           },
           {
             "result": {
-              "duration": 3076143333,
+              "duration": 3069406355,
               "status": "passed"
             },
             "line": 21,
@@ -65,7 +65,7 @@
           },
           {
             "result": {
-              "duration": 15441131430,
+              "duration": 13999699016,
               "status": "passed"
             },
             "line": 22,
@@ -77,7 +77,7 @@
           },
           {
             "result": {
-              "duration": 245685,
+              "duration": 25933967,
               "status": "passed"
             },
             "line": 23,

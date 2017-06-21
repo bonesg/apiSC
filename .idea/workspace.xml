@@ -22,10 +22,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="apiTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="apiTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/channels/ab/api/tests/apiTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66442955">
+            <state vertical-scroll-proportion="0.0">
               <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -44,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activationKey.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="activationKey.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/channels/ab/glue/api/activationKey.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="120" column="32" selection-start-line="120" selection-start-column="32" selection-end-line="120" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.59395975">
+              <caret line="120" column="65" selection-start-line="120" selection-start-column="65" selection-end-line="120" selection-end-column="65" />
               <folding>
                 <element signature="method#a_POST_request_is_made_to_the_activationKey_API#0;class#activationKey#0" expanded="false" />
                 <element signature="method#API_response_should_be_OK#0;class#activationKey#0" expanded="false" />
@@ -64,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/resources/features/api/activationKey.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -108,11 +108,11 @@
         <option value="$PROJECT_DIR$/src/test/resources/test-data/certificate" />
         <option value="$PROJECT_DIR$/src/test/resources/certificate.txt" />
         <option value="$PROJECT_DIR$/src/test/java/com/channels/ab/common/EndPoint.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/features/api/activationKey.feature" />
         <option value="$PROJECT_DIR$/src/main/java/common/RestAssuredConfig.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/channels/ab/glue/api/activationKey.java" />
         <option value="$PROJECT_DIR$/src/test/resources/test-data/activationKeyBody.json" />
         <option value="$PROJECT_DIR$/src/test/java/com/channels/ab/api/tests/apiTest.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/features/api/activationKey.feature" />
+        <option value="$PROJECT_DIR$/src/test/java/com/channels/ab/glue/api/activationKey.java" />
       </list>
     </option>
   </component>
@@ -758,6 +758,9 @@
     <history-entry file="apiTest - 2017.06.21 at 18h 22m 28s.xml">
       <configuration name="apiTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="apiTest - 2017.06.21 at 18h 28m 57s.xml">
+      <configuration name="apiTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -770,7 +773,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29405162" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29405162" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -819,7 +822,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/channels/ab/glue/api/activationKey.java</url>
-          <line>73</line>
+          <line>74</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -873,20 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/channels/ab/glue/api/activationKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="120" column="32" selection-start-line="120" selection-start-column="32" selection-end-line="120" selection-end-column="32" />
-          <folding>
-            <element signature="method#a_POST_request_is_made_to_the_activationKey_API#0;class#activationKey#0" expanded="false" />
-            <element signature="method#API_response_should_be_OK#0;class#activationKey#0" expanded="false" />
-            <element signature="method#content_and_key_data_should_be_generated#0;class#activationKey#0" expanded="false" />
-            <element signature="method#generated_content_and_key_is_passed_to_the_create_token_method#0;class#activationKey#0" expanded="false" />
-            <element signature="method#token_should_be_generated_successfully#0;class#activationKey#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/publicKey.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -903,14 +892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/features/api/activationKey.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/channels/ab/common/EndPoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.1764708">
@@ -921,10 +902,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/channels/ab/api/tests/apiTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66442955">
+        <state vertical-scroll-proportion="0.0">
           <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/features/api/activationKey.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/channels/ab/glue/api/activationKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59395975">
+          <caret line="120" column="65" selection-start-line="120" selection-start-column="65" selection-end-line="120" selection-end-column="65" />
+          <folding>
+            <element signature="method#a_POST_request_is_made_to_the_activationKey_API#0;class#activationKey#0" expanded="false" />
+            <element signature="method#API_response_should_be_OK#0;class#activationKey#0" expanded="false" />
+            <element signature="method#content_and_key_data_should_be_generated#0;class#activationKey#0" expanded="false" />
+            <element signature="method#generated_content_and_key_is_passed_to_the_create_token_method#0;class#activationKey#0" expanded="false" />
+            <element signature="method#token_should_be_generated_successfully#0;class#activationKey#0" expanded="false" />
           </folding>
         </state>
       </provider>

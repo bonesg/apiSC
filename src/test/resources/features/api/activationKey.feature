@@ -15,7 +15,7 @@ Feature: Generate Activation Key and JWT
     Then token should be generated successfully
 
   @ab @registerMe
-  Scenario: Validate activation key is generated successfully
+  Scenario: Validate user is able to register himself successfully
     Given 'activationKey and activate' API
     And user has valid SSL certificate
     And user has already generated the JWT token
