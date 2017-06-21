@@ -1,0 +1,15 @@
+{
+  "reportRequests": [
+    {
+      "filtersQuery": {
+        "analysts": [ 508, 511 ],
+        "regionsCountries": [ 3072, 113, 114 ],
+        "publicationTypes": [ "ECON_WKLY" ],
+        "assetClasses": [ "FX" ],
+        "publicationDate": [ "", "2017-03-02" ]
+      },
+      "reportCount": "12",
+      "offset": "24"
+    }
+  ]
+}

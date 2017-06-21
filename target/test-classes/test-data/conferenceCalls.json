@@ -1,0 +1,10 @@
+{
+  "reportRequests": [
+    {
+      "filtersQuery": {
+        "reportType": "CONF_CALL"
+      },
+      "reportCount": "2"
+    }
+  ]
+}

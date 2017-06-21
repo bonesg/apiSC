@@ -1,0 +1,39 @@
+{
+  "userId": "7479",
+  "isActive": "true",
+  "name": "Saiju Gandhi Gandhi",
+  "firstName": "Saiju Gandhi",
+  "lastName": "Gandhi",
+  "countryName": "Argentina",
+  "email": "Saiju.Gandhi@sc.com",
+  "languageCode": "EN",
+  "companyName": "Standard Chartered Bank",
+  "userTier": null,
+  "alertSettings": {
+    "sendNotificationsToCodes": [
+      "EML",
+      "MBL",
+      "WBS"
+    ],
+    "frequencyCode": "IMM",
+    "dailyNotificationHour": null,
+    "timeZone": "Argentina Standard Time"
+  },
+  "subscriptions": null,
+  "auditInformation": {
+    "receivedAt": "2017-05-15T03:47:00.169Z"
+  },
+  "entitlements": {
+    "entitlementIncludes": [
+      "CREDIT",
+      "COMMODITIES",
+      "FX",
+      "RATES",
+      "ECONOMICS"
+    ],
+    "entitlementExcludes": [],
+    "auditInformation": {
+      "receivedAt": "2017-05-15T03:47:56.214Z"
+    }
+  }
+}

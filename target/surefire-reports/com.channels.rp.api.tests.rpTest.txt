@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.channels.rp.api.tests.rpTest
+-------------------------------------------------------------------------------
+Tests run: 293, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.552 sec - in com.channels.rp.api.tests.rpTest

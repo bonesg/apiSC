@@ -1,0 +1,139 @@
+{
+  "userId": "1683",
+  "isActive": "true",
+  "name": "Arun Das",
+  "firstName": "Arun",
+  "lastName": "Das",
+  "countryId": "89",
+  "email": "Arun.V.Das@sc.com",
+  "languageCode": "EN",
+  "companyName": "Standard Chartered Bank",
+  "userTier": null,
+  "alertSettings": {
+    "sendNotificationsToCodes": [
+      "EML",
+      "MBL",
+      "WBS"
+    ],
+    "frequencyCode": "IMM",
+    "dailyNotificationHour": null,
+    "timeZone": "India Standard Time"
+  },
+  "subscriptions": {
+    "languages": {
+      "codes": [
+        "ENG",
+        "TRAD_CHN"
+      ],
+      "isAll": false
+    },
+    "analysts": {
+      "ids": [
+        "545",
+        "724"
+      ],
+      "isAll": false
+    },
+    "publications": {
+      "tags": [
+        "ACT",
+        "AFR_CRED_CPDM",
+        "ASIA_CRED_CPDM",
+        "COMM_ALT",
+        "COMM_METALS_STD"
+      ],
+      "isAll": false
+    },
+    "investmentThemes": {
+      "codes": [
+        "GDP_GROWTH",
+        "FUND_ANALYSIS"
+      ],
+      "isAll": false
+    },
+    "regionsCountries": {
+      "regionIds": [
+        "7328",
+        "9037"
+      ],
+      "countryIds": [
+        "901",
+        "903",
+        "904",
+        "905",
+        "906",
+        "915"
+      ],
+      "isAll": false
+    },
+    "assetClasses": [
+      {
+        "code": "COMMODITIES",
+        "referenceIds": [
+          "10027",
+          "10066"
+        ],
+        "groupReferenceIds": [],
+        "isAll": false
+      },
+      {
+        "code": "CREDIT",
+        "referenceIds": [
+          "19359"
+        ],
+        "groupReferenceIds": [],
+        "isAll": false
+      },
+      {
+        "code": "ECONOMICS",
+        "referenceIds": [],
+        "groupReferenceIds": [
+          "7326",
+          "9037"
+        ],
+        "isAll": false
+      },
+      {
+        "code": "FX",
+        "referenceIds": [
+          "11018",
+          "11028",
+          "11156",
+          "11006"
+        ],
+        "groupReferenceIds": [],
+        "isAll": false
+      },
+      {
+        "code": "RATES",
+        "referenceIds": [
+          "12002",
+          "12034"
+        ],
+        "groupReferenceIds": [
+          "9039"
+        ],
+        "isAll": false
+      }
+    ],
+    "auditInformation": {
+      "receivedAt": "2017-01-17T08:17:03.227Z"
+    }
+  },
+  "auditInformation": {
+    "receivedAt": "2017-04-28T06:23:28.507Z"
+  },
+  "entitlements": {
+    "entitlementIncludes": [
+      "CREDIT",
+      "COMMODITIES",
+      "FX",
+      "RATES",
+      "ECONOMICS"
+    ],
+    "entitlementExcludes": [],
+    "auditInformation": {
+      "receivedAt": "2017-04-28T06:24:06.560Z"
+    }
+  }
+}

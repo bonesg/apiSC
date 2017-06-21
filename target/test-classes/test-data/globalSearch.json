@@ -1,0 +1,10 @@
+{
+  "searchRequest": {
+    "searchTerm": "searchForMe",
+    "resultLimits": {
+      "reports": 99999,
+      "analysts": 88888,
+      "assetClasses": 77777
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "analystRequest": {
+    "filtersQuery": {
+      "assetClass": "asset"
+    },
+    "analystCount": 99999
+  }
+}

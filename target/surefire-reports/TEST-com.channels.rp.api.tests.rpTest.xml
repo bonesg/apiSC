@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.channels.rp.api.tests.rpTest" time="36.552" tests="293" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_25\jre\bin"/>
+    <property name="java.vm.version" value="23.25-b01"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\rp-workspace\foundation-services\rp-automation"/>
+    <property name="java.runtime.version" value="1.7.0_25-b17"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0_25\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\1556780\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="C:\Program Files\Maven\apache-maven-3.1.1\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.7.0_25\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Oracle\product\11.2.0\client_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\1E\NomadBranch\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Java\jre1.5.0_15\bin;C:\Program Files (x86)\Wave Systems Corp\bin\;C:\Program Files\Wave Systems Corp\Wave TSS\bin\;C:\Program Files\Maven\apache-maven-3.1.1\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Java\jdk1.6.0_26\bin;C:\Program Files (x86)\Java\jdk1.6.0_26\jre\bin;%M2%;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="51.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\1556780"/>
+    <property name="user.timezone" value="Asia/Singapore"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.7"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="1556780"/>
+    <property name="java.class.path" value="C:\Program Files\Maven\apache-maven-3.1.1\boot\plexus-classworlds-2.5.1.jar"/>
+    <property name="org.slf4j.simpleLogger.defaultLogLevel" value="info"/>
+    <property name="java.vm.specification.version" value="1.7"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.7.0_25\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.7.0_25"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.7.0_25\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.7.0_25\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_25\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\Maven\apache-maven-3.1.1"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="Given &apos;RegionsAndCountries&apos; API" classname="Scenario: Validate RegionsAndCountries API endpoint response status" time="0.001"/>
+  <testcase name="When a GET request is made to the RegionsAndCountries API" classname="Scenario: Validate RegionsAndCountries API endpoint response status" time="0"/>
+  <testcase name="Then RegionsAndCountries API response should be OK" classname="Scenario: Validate RegionsAndCountries API endpoint response status" time="0"/>
+  <testcase name="Scenario: Validate RegionsAndCountries API endpoint response status" classname="Scenario: Validate RegionsAndCountries API endpoint response status" time="0.098"/>
+  <testcase name="Given &apos;RegionsAndCountries&apos; API" classname="Scenario: Validate RegionsAndCountries API endpoint response for country ids" time="0"/>
+  <testcase name="When a GET request is made to the RegionsAndCountries API" classname="Scenario: Validate RegionsAndCountries API endpoint response for country ids" time="0"/>
+  <testcase name="Then response should show list of all country ids" classname="Scenario: Validate RegionsAndCountries API endpoint response for country ids" time="0"/>
+  <testcase name="Scenario: Validate RegionsAndCountries API endpoint response for country ids" classname="Scenario: Validate RegionsAndCountries API endpoint response for country ids" time="0.082"/>
+  <testcase name="Given &apos;RegionsAndCountries&apos; API" classname="Scenario: Validate regionsandcountries API endpoint response for country names" time="0"/>
+  <testcase name="When a GET request is made to the RegionsAndCountries API" classname="Scenario: Validate regionsandcountries API endpoint response for country names" time="0"/>
+  <testcase name="Then response should show list of all country names" classname="Scenario: Validate regionsandcountries API endpoint response for country names" time="0"/>
+  <testcase name="Scenario: Validate regionsandcountries API endpoint response for country names" classname="Scenario: Validate regionsandcountries API endpoint response for country names" time="0.096"/>
+  <testcase name="Given &apos;RegionsAndCountries&apos; API" classname="Scenario: Validate RegionsAndCountries API endpoint for parentId specific to countries" time="0"/>
+  <testcase name="When a GET request is made to the RegionsAndCountries API" classname="Scenario: Validate RegionsAndCountries API endpoint for parentId specific to countries" time="0"/>
+  <testcase name="Then response should show list of parentId specific to countries" classname="Scenario: Validate RegionsAndCountries API endpoint for parentId specific to countries" time="0"/>
+  <testcase name="Scenario: Validate RegionsAndCountries API endpoint for parentId specific to countries" classname="Scenario: Validate RegionsAndCountries API endpoint for parentId specific to countries" time="0.137"/>
+  <testcase name="Given &apos;RegionsAndCountries&apos; API" classname="Scenario: Validate RegionsAndCountries API endpoint for isRegion flag specific to countries" time="0"/>
+  <testcase name="When a GET request is made to the RegionsAndCountries API" classname="Scenario: Validate RegionsAndCountries API endpoint for isRegion flag specific to countries" time="0"/>
+  <testcase name="Then response should show isRegion flag values specific to countries" classname="Scenario: Validate RegionsAndCountries API endpoint for isRegion flag specific to countries" time="0"/>
+  <testcase name="Scenario: Validate RegionsAndCountries API endpoint for isRegion flag specific to countries" classname="Scenario: Validate RegionsAndCountries API endpoint for isRegion flag specific to countries" time="0.141"/>
+  <testcase name="Given &apos;RegionsAndCountries&apos; API" classname="Scenario: Validate RegionsAndCountries API endpoint for generalfootnote specific to countries" time="0"/>
+  <testcase name="When a GET request is made to the RegionsAndCountries API" classname="Scenario: Validate RegionsAndCountries API endpoint for generalfootnote specific to countries" time="0"/>
+  <testcase name="Then response should show generalFootNote values specific to countries" classname="Scenario: Validate RegionsAndCountries API endpoint for generalfootnote specific to countries" time="0"/>
+  <testcase name="Scenario: Validate RegionsAndCountries API endpoint for generalfootnote specific to countries" classname="Scenario: Validate RegionsAndCountries API endpoint for generalfootnote specific to countries" time="0.121"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| Rates |" time="0"/>
+  <testcase name="And a valid assetClass:" classname="| Rates |" time="0"/>
+  <testcase name="When a GET request is made to the analysts-assetClass API" classname="| Rates |" time="0"/>
+  <testcase name="Then analysts API response should be OK" classname="| Rates |" time="0"/>
+  <testcase name="| Rates |" classname="| Rates |" time="0.123"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| Credit |" time="0"/>
+  <testcase name="And a valid assetClass:" classname="| Credit |" time="0"/>
+  <testcase name="When a GET request is made to the analysts-assetClass API" classname="| Credit |" time="0"/>
+  <testcase name="Then analysts API response should be OK" classname="| Credit |" time="0"/>
+  <testcase name="| Credit |" classname="| Credit |" time="0.117"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| Fx |" time="0"/>
+  <testcase name="And a valid assetClass:" classname="| Fx |" time="0"/>
+  <testcase name="When a GET request is made to the analysts-assetClass API" classname="| Fx |" time="0"/>
+  <testcase name="Then analysts API response should be OK" classname="| Fx |" time="0"/>
+  <testcase name="| Fx |" classname="| Fx |" time="0.119"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| Economics |" time="0"/>
+  <testcase name="And a valid assetClass:" classname="| Economics |" time="0"/>
+  <testcase name="When a GET request is made to the analysts-assetClass API" classname="| Economics |" time="0"/>
+  <testcase name="Then analysts API response should be OK" classname="| Economics |" time="0"/>
+  <testcase name="| Economics |" classname="| Economics |" time="0.129"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| Commodities |" time="0"/>
+  <testcase name="And a valid assetClass:" classname="| Commodities |" time="0"/>
+  <testcase name="When a GET request is made to the analysts-assetClass API" classname="| Commodities |" time="0"/>
+  <testcase name="Then analysts API response should be OK" classname="| Commodities |" time="0"/>
+  <testcase name="| Commodities |" classname="| Commodities |" time="0.117"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="Scenario: Validate analysts-countryId API endpoint GET response status" time="0"/>
+  <testcase name="When a GET request is made to the analysts-countryId API" classname="Scenario: Validate analysts-countryId API endpoint GET response status" time="0"/>
+  <testcase name="Then analysts API response should be OK" classname="Scenario: Validate analysts-countryId API endpoint GET response status" time="0"/>
+  <testcase name="Scenario: Validate analysts-countryId API endpoint GET response status" classname="Scenario: Validate analysts-countryId API endpoint GET response status" time="0.081"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| 640 |" time="0"/>
+  <testcase name="And a valid analyst:" classname="| 640 |" time="0"/>
+  <testcase name="When a GET request is made to the analysts API" classname="| 640 |" time="0"/>
+  <testcase name="Then analysts API response should be OK" classname="| 640 |" time="0"/>
+  <testcase name="| 640 |" classname="| 640 |" time="0.122"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| 505 |" time="0"/>
+  <testcase name="And a valid analyst:" classname="| 505 |" time="0"/>
+  <testcase name="When a GET request is made to the analysts API" classname="| 505 |" time="0"/>
+  <testcase name="Then analysts API response should be OK" classname="| 505 |" time="0.001"/>
+  <testcase name="| 505 |" classname="| 505 |" time="0.118"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| 506 | Razia | Khan | Razia Khan | Chief Economist, Africa | a well-known commentator on African markets | +44 20 7885 6914 |  | GL2 | true | 506 | Razia.er-techtest@sc.com |" time="0"/>
+  <testcase name="And a valid analyst:" classname="| 506 | Razia | Khan | Razia Khan | Chief Economist, Africa | a well-known commentator on African markets | +44 20 7885 6914 |  | GL2 | true | 506 | Razia.er-techtest@sc.com |" time="0"/>
+  <testcase name="When a GET request is made to the analysts API" classname="| 506 | Razia | Khan | Razia Khan | Chief Economist, Africa | a well-known commentator on African markets | +44 20 7885 6914 |  | GL2 | true | 506 | Razia.er-techtest@sc.com |" time="0"/>
+  <testcase name="Then analysts API response should return valid analyst details:" classname="| 506 | Razia | Khan | Razia Khan | Chief Economist, Africa | a well-known commentator on African markets | +44 20 7885 6914 |  | GL2 | true | 506 | Razia.er-techtest@sc.com |" time="0"/>
+  <testcase name="| 506 | Razia | Khan | Razia Khan | Chief Economist, Africa | a well-known commentator on African markets | +44 20 7885 6914 |  | GL2 | true | 506 | Razia.er-techtest@sc.com |" classname="| 506 | Razia | Khan | Razia Khan | Chief Economist, Africa | a well-known commentator on African markets | +44 20 7885 6914 |  | GL2 | true | 506 | Razia.er-techtest@sc.com |" time="0.118"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| FX | 21 |" time="0"/>
+  <testcase name="And a valid assetClass:" classname="| FX | 21 |" time="0"/>
+  <testcase name="When a GET request is made to the analysts-assetClass API" classname="| FX | 21 |" time="0"/>
+  <testcase name="Then verify analyst count is accurate as per asset class:" classname="| FX | 21 |" time="0"/>
+  <testcase name="| FX | 21 |" classname="| FX | 21 |" time="0.126"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| Rates | 24 |" time="0"/>
+  <testcase name="And a valid assetClass:" classname="| Rates | 24 |" time="0"/>
+  <testcase name="When a GET request is made to the analysts-assetClass API" classname="| Rates | 24 |" time="0"/>
+  <testcase name="Then verify analyst count is accurate as per asset class:" classname="| Rates | 24 |" time="0"/>
+  <testcase name="| Rates | 24 |" classname="| Rates | 24 |" time="0.117"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| Economics | 33 |" time="0"/>
+  <testcase name="And a valid assetClass:" classname="| Economics | 33 |" time="0"/>
+  <testcase name="When a GET request is made to the analysts-assetClass API" classname="| Economics | 33 |" time="0"/>
+  <testcase name="Then verify analyst count is accurate as per asset class:" classname="| Economics | 33 |" time="0"/>
+  <testcase name="| Economics | 33 |" classname="| Economics | 33 |" time="0.117"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| Credit | 8 |" time="0"/>
+  <testcase name="And a valid assetClass:" classname="| Credit | 8 |" time="0"/>
+  <testcase name="When a GET request is made to the analysts-assetClass API" classname="| Credit | 8 |" time="0"/>
+  <testcase name="Then verify analyst count is accurate as per asset class:" classname="| Credit | 8 |" time="0"/>
+  <testcase name="| Credit | 8 |" classname="| Credit | 8 |" time="0.117"/>
+  <testcase name="Given &apos;analysts&apos; API" classname="| Commodities | 6 |" time="0"/>
+  <testcase name="And a valid assetClass:" classname="| Commodities | 6 |" time="0"/>
+  <testcase name="When a GET request is made to the analysts-assetClass API" classname="| Commodities | 6 |" time="0"/>
+  <testcase name="Then verify analyst count is accurate as per asset class:" classname="| Commodities | 6 |" time="0"/>
+  <testcase name="| Commodities | 6 |" classname="| Commodities | 6 |" time="0.115"/>
+  <testcase name="Given &apos;assetClassSubscriptions&apos; API" classname="| 8613 |" time="0"/>
+  <testcase name="And a valid user having asset class subscriptions:" classname="| 8613 |" time="0"/>
+  <testcase name="When a GET request is made to the asset class subscriptions API" classname="| 8613 |" time="0"/>
+  <testcase name="Then asset class subscriptions API response should be OK" classname="| 8613 |" time="0"/>
+  <testcase name="| 8613 |" classname="| 8613 |" time="0.124"/>
+  <testcase name="| 8613 |" classname="| 8613 |" time="0.125"/>
+  <testcase name="| 8613 |" classname="| 8613 |" time="0.124"/>
+  <testcase name="| 8613 |" classname="| 8613 |" time="0.121"/>
+  <testcase name="| 8613 |" classname="| 8613 |" time="0.122"/>
+  <testcase name="| 8613 |" classname="| 8613 |" time="0.118"/>
+  <testcase name="| 8613 |" classname="| 8613 |" time="0.118"/>
+  <testcase name="| 8613 |" classname="| 8613 |" time="0.123"/>
+  <testcase name="| 8613 |" classname="| 8613 |" time="0.119"/>
+  <testcase name="Given &apos;assetClassSubscriptions&apos; API" classname="| 8613 | Africa | Americas | Asia | Europe | MENA |" time="0"/>
+  <testcase name="Given &apos;assetClassSubscriptions&apos; API" classname="| 8613 | Africa | Americas | Asia | Europe | MENA |" time="0"/>
+  <testcase name="And a valid user having asset class subscriptions:" classname="| 8613 | Africa | Americas | Asia | Europe | MENA |" time="0"/>
+  <testcase name="And a valid user having asset class subscriptions:" classname="| 8613 | Africa | Americas | Asia | Europe | MENA |" time="0"/>
+  <testcase name="When a GET request is made to the asset class subscriptions API" classname="| 8613 | Africa | Americas | Asia | Europe | MENA |" time="0.001"/>
+  <testcase name="When a GET request is made to the asset class subscriptions API" classname="| 8613 | Africa | Americas | Asia | Europe | MENA |" time="0"/>
+  <testcase name="Then response should show valid region names for Economics:" classname="| 8613 | Africa | Americas | Asia | Europe | MENA |" time="0"/>
+  <testcase name="| 8613 | Africa | Americas | Asia | Europe | MENA |" classname="| 8613 | Africa | Americas | Asia | Europe | MENA |" time="0.119"/>
+  <testcase name="| 8613 | Africa | Americas | Asia | Europe | MENA |" classname="| 8613 | Africa | Americas | Asia | Europe | MENA |" time="0.118"/>
+  <testcase name="Then response should show valid region names for Fx:" classname="| 8613 | Africa | Americas | Asia | Europe | MENA |" time="0"/>
+  <testcase name="Given &apos;assetClassSubscriptions&apos; API" classname="| 8613 | Africa | Americas | Asia | Europe |" time="0"/>
+  <testcase name="And a valid user having asset class subscriptions:" classname="| 8613 | Africa | Americas | Asia | Europe |" time="0"/>
+  <testcase name="When a GET request is made to the asset class subscriptions API" classname="| 8613 | Africa | Americas | Asia | Europe |" time="0"/>
+  <testcase name="Then response should show valid region names for Rates:" classname="| 8613 | Africa | Americas | Asia | Europe |" time="0"/>
+  <testcase name="| 8613 | Africa | Americas | Asia | Europe |" classname="| 8613 | Africa | Americas | Asia | Europe |" time="0.12"/>
+  <testcase name="Given &apos;assetClassSubscriptions&apos; API" classname="| 8613 | Financials | High-grade corporates | High-yield corporates | Sovereigns |" time="0"/>
+  <testcase name="And a valid user having asset class subscriptions:" classname="| 8613 | Financials | High-grade corporates | High-yield corporates | Sovereigns |" time="0"/>
+  <testcase name="When a GET request is made to the asset class subscriptions API" classname="| 8613 | Financials | High-grade corporates | High-yield corporates | Sovereigns |" time="0"/>
+  <testcase name="Then response should show valid categories for Credit:" classname="| 8613 | Financials | High-grade corporates | High-yield corporates | Sovereigns |" time="0"/>
+  <testcase name="| 8613 | Financials | High-grade corporates | High-yield corporates | Sovereigns |" classname="| 8613 | Financials | High-grade corporates | High-yield corporates | Sovereigns |" time="0.118"/>
+  <testcase name="Given &apos;forecasts&apos; API" classname="| 8613 |" time="0"/>
+  <testcase name="Given &apos;forecasts&apos; API" classname="| 8613 |" time="0"/>
+  <testcase name="Given &apos;forecasts&apos; API" classname="| 8613 |" time="0"/>
+  <testcase name="Given &apos;forecasts&apos; API" classname="| 8613 |" time="0"/>
+  <testcase name="And a valid user having all entitlements:" classname="| 8613 |" time="0"/>
+  <testcase name="And a valid user having all entitlements:" classname="| 8613 |" time="0"/>
+  <testcase name="And a valid user having all entitlements:" classname="| 8613 |" time="0"/>
+  <testcase name="And a valid user having all entitlements:" classname="| 8613 |" time="0"/>
+  <testcase name="When a GET request is made to the forecasts-rates API" classname="| 8613 |" time="0"/>
+  <testcase name="Then forecasts API response should be OK" classname="| 8613 |" time="0"/>
+  <testcase name="Then forecasts API response should be OK" classname="| 8613 |" time="0"/>
+  <testcase name="Then forecasts API response should be OK" classname="| 8613 |" time="0"/>
+  <testcase name="Then forecasts API response should be OK" classname="| 8613 |" time="0"/>
+  <testcase name="When a GET request is made to the forecasts-commodities API" classname="| 8613 |" time="0.001"/>
+  <testcase name="When a GET request is made to the forecasts-economics API" classname="| 8613 |" time="0"/>
+  <testcase name="When a GET request is made to the forecasts-fx API" classname="| 8613 |" time="0"/>
+  <testcase name="Given &apos;forecasts&apos; API" classname="| 8613 | US Rates |" time="0"/>
+  <testcase name="And a valid user having all entitlements:" classname="| 8613 | US Rates |" time="0"/>
+  <testcase name="When a GET request is made to the forecasts-rates API" classname="| 8613 | US Rates |" time="0"/>
+  <testcase name="Then following instrument names should exist in the response:" classname="| 8613 | US Rates |" time="0"/>
+  <testcase name="| 8613 | US Rates |" classname="| 8613 | US Rates |" time="0.13"/>
+  <testcase name="Given &apos;forecasts&apos; API" classname="| 8613 | India Rates |" time="0"/>
+  <testcase name="And a valid user having all entitlements:" classname="| 8613 | India Rates |" time="0"/>
+  <testcase name="When a GET request is made to the forecasts-rates API" classname="| 8613 | India Rates |" time="0"/>
+  <testcase name="Then following instrument names should exist in the response:" classname="| 8613 | India Rates |" time="0"/>
+  <testcase name="| 8613 | India Rates |" classname="| 8613 | India Rates |" time="0.116"/>
+  <testcase name="Given &apos;forecasts&apos; API" classname="| 8613 | Majors | Asia | Africa | Latin America | Europe |" time="0"/>
+  <testcase name="And a valid user having all entitlements:" classname="| 8613 | Majors | Asia | Africa | Latin America | Europe |" time="0"/>
+  <testcase name="When a GET request is made to the forecasts-rates API" classname="| 8613 | Majors | Asia | Africa | Latin America | Europe |" time="0"/>
+  <testcase name="Then following region names should exist in the response:" classname="| 8613 | Majors | Asia | Africa | Latin America | Europe |" time="0"/>
+  <testcase name="| 8613 | Majors | Asia | Africa | Latin America | Europe |" classname="| 8613 | Majors | Asia | Africa | Latin America | Europe |" time="0.118"/>
+  <testcase name="Given &apos;publicationTypes&apos; API" classname="Scenario: Validate publicationTypes API endpoint response status" time="0"/>
+  <testcase name="When a GET request is made to the publicationTypes API" classname="Scenario: Validate publicationTypes API endpoint response status" time="0"/>
+  <testcase name="Then publicationTypes API response should be OK" classname="Scenario: Validate publicationTypes API endpoint response status" time="0"/>
+  <testcase name="Scenario: Validate publicationTypes API endpoint response status" classname="Scenario: Validate publicationTypes API endpoint response status" time="0.105"/>
+  <testcase name="Given &apos;publicationTypes&apos; API" classname="Scenario: Validate publicationTypes API endpoint response for publication type codes" time="0"/>
+  <testcase name="When a GET request is made to the publicationTypes API" classname="Scenario: Validate publicationTypes API endpoint response for publication type codes" time="0"/>
+  <testcase name="Then response should show list of all publication type codes" classname="Scenario: Validate publicationTypes API endpoint response for publication type codes" time="0"/>
+  <testcase name="Scenario: Validate publicationTypes API endpoint response for publication type codes" classname="Scenario: Validate publicationTypes API endpoint response for publication type codes" time="0.081"/>
+  <testcase name="Given &apos;publicationTypes&apos; API" classname="Scenario: Validate publicationTypes API endpoint response for publication type names" time="0"/>
+  <testcase name="When a GET request is made to the publicationTypes API" classname="Scenario: Validate publicationTypes API endpoint response for publication type names" time="0"/>
+  <testcase name="Then response should show all names specific to publication type codes" classname="Scenario: Validate publicationTypes API endpoint response for publication type names" time="0"/>
+  <testcase name="Scenario: Validate publicationTypes API endpoint response for publication type names" classname="Scenario: Validate publicationTypes API endpoint response for publication type names" time="0.08"/>
+  <testcase name="Given &apos;regionsandcountries&apos; API" classname="Scenario: Validate regionsandcountries API endpoint response status" time="0"/>
+  <testcase name="When a GET request is made to the regionsandcountries API" classname="Scenario: Validate regionsandcountries API endpoint response status" time="0"/>
+  <testcase name="Then regionsandcountries API response should be OK" classname="Scenario: Validate regionsandcountries API endpoint response status" time="0"/>
+  <testcase name="Scenario: Validate regionsandcountries API endpoint response status" classname="Scenario: Validate regionsandcountries API endpoint response status" time="0.081"/>
+  <testcase name="Given &apos;regionsandcountries&apos; API" classname="| 7326 | 9035 | 9045 | 9037 | 9039 |" time="0"/>
+  <testcase name="When a GET request is made to the regionsandcountries API" classname="| 7326 | 9035 | 9045 | 9037 | 9039 |" time="0"/>
+  <testcase name="Then response should show valid region ids:" classname="| 7326 | 9035 | 9045 | 9037 | 9039 |" time="0"/>
+  <testcase name="| 7326 | 9035 | 9045 | 9037 | 9039 |" classname="| 7326 | 9035 | 9045 | 9037 | 9039 |" time="0.119"/>
+  <testcase name="Given &apos;regionsandcountries&apos; API" classname="| Asia | Africa | MENA | Europe | Americas |" time="0"/>
+  <testcase name="When a GET request is made to the regionsandcountries API" classname="| Asia | Africa | MENA | Europe | Americas |" time="0"/>
+  <testcase name="Then response should show valid region names:" classname="| Asia | Africa | MENA | Europe | Americas |" time="0"/>
+  <testcase name="| Asia | Africa | MENA | Europe | Americas |" classname="| Asia | Africa | MENA | Europe | Americas |" time="0.118"/>
+  <testcase name="Given &apos;regionsandcountries&apos; API" classname="| 7328 | 9046 | 9048 | 9049 | 9050 |" time="0"/>
+  <testcase name="When a GET request is made to the regionsandcountries API" classname="| 7328 | 9046 | 9048 | 9049 | 9050 |" time="0"/>
+  <testcase name="Then response should show valid sub-region ids:" classname="| 7328 | 9046 | 9048 | 9049 | 9050 |" time="0"/>
+  <testcase name="| 7328 | 9046 | 9048 | 9049 | 9050 |" classname="| 7328 | 9046 | 9048 | 9049 | 9050 |" time="0.124"/>
+  <testcase name="Given &apos;regionsandcountries&apos; API" classname="| Greater China | Australasia | South Asia | South East Asia | North East Asia |" time="0"/>
+  <testcase name="When a GET request is made to the regionsandcountries API" classname="| Greater China | Australasia | South Asia | South East Asia | North East Asia |" time="0"/>
+  <testcase name="Then response should show valid sub-region names:" classname="| Greater China | Australasia | South Asia | South East Asia | North East Asia |" time="0"/>
+  <testcase name="| Greater China | Australasia | South Asia | South East Asia | North East Asia |" classname="| Greater China | Australasia | South Asia | South East Asia | North East Asia |" time="0.117"/>
+  <testcase name="Given &apos;regionsandcountries&apos; API" classname="| 5017 | 917 | 937 |" time="0"/>
+  <testcase name="When a GET request is made to the regionsandcountries API" classname="| 5017 | 917 | 937 |" time="0"/>
+  <testcase name="Then response should show valid country ids:" classname="| 5017 | 917 | 937 |" time="0"/>
+  <testcase name="| 5017 | 917 | 937 |" classname="| 5017 | 917 | 937 |" time="0.127"/>
+  <testcase name="Given &apos;regionsandcountries&apos; API" classname="| China | Hong Kong | Taiwan |" time="0"/>
+  <testcase name="When a GET request is made to the regionsandcountries API" classname="| China | Hong Kong | Taiwan |" time="0"/>
+  <testcase name="Then response should show valid country names:" classname="| China | Hong Kong | Taiwan |" time="0"/>
+  <testcase name="| China | Hong Kong | Taiwan |" classname="| China | Hong Kong | Taiwan |" time="0.119"/>
+  <testcase name="Given &apos;researchReasons&apos; API" classname="Scenario: Validate researchReasons API endpoint response status" time="0"/>
+  <testcase name="When a GET request is made to the researchReasons API" classname="Scenario: Validate researchReasons API endpoint response status" time="0"/>
+  <testcase name="Then researchReasons API response should be OK" classname="Scenario: Validate researchReasons API endpoint response status" time="0"/>
+  <testcase name="Scenario: Validate researchReasons API endpoint response status" classname="Scenario: Validate researchReasons API endpoint response status" time="0.082"/>
+  <testcase name="Given &apos;languages&apos; API" classname="Scenario: Validate languages API endpoint response status" time="0"/>
+  <testcase name="When a GET request is made to the languages API" classname="Scenario: Validate languages API endpoint response status" time="0"/>
+  <testcase name="Then API response should be OK" classname="Scenario: Validate languages API endpoint response status" time="0"/>
+  <testcase name="Scenario: Validate languages API endpoint response status" classname="Scenario: Validate languages API endpoint response status" time="0.081"/>
+  <testcase name="Given &apos;recommendations&apos; API" classname="Scenario: Validate recommendations API endpoint response status" time="0"/>
+  <testcase name="When a GET request is made to the recommendations API" classname="Scenario: Validate recommendations API endpoint response status" time="0"/>
+  <testcase name="Then API response should be OK" classname="Scenario: Validate recommendations API endpoint response status" time="0"/>
+  <testcase name="Scenario: Validate recommendations API endpoint response status" classname="Scenario: Validate recommendations API endpoint response status" time="0.12"/>
+  <testcase name="Given &apos;frequencies&apos; API" classname="Scenario: Validate frequencies API endpoint response status" time="0"/>
+  <testcase name="When a GET request is made to the frequencies API" classname="Scenario: Validate frequencies API endpoint response status" time="0"/>
+  <testcase name="Then API response should be OK" classname="Scenario: Validate frequencies API endpoint response status" time="0"/>
+  <testcase name="Scenario: Validate frequencies API endpoint response status" classname="Scenario: Validate frequencies API endpoint response status" time="0.093"/>
+  <testcase name="Given &apos;price&apos; API" classname="| 8613 |" time="0"/>
+  <testcase name="And a valid user entitled to price data:" classname="| 8613 |" time="0"/>
+  <testcase name="And a valid user entitled to price data:" classname="| 8613 |" time="0"/>
+  <testcase name="When a GET request is made to the price API" classname="| 8613 |" time="0"/>
+  <testcase name="Then API response should be OK" classname="| 8613 |" time="0"/>
+  <testcase name="Then API response should be OK" classname="| 8613 |" time="0"/>
+  <testcase name="Given &apos;Fx-price&apos; API" classname="| 8613 |" time="0"/>
+  <testcase name="When a GET request is made to the Fx-price API" classname="| 8613 |" time="0"/>
+  <testcase name="Given &apos;TimeZone&apos; API" classname="Scenario: Validate Commodity-price API endpoint response status" time="0"/>
+  <testcase name="When a GET request is made to the TimeZone API" classname="Scenario: Validate Commodity-price API endpoint response status" time="0"/>
+  <testcase name="Then API response should be OK" classname="Scenario: Validate Commodity-price API endpoint response status" time="0"/>
+  <testcase name="Scenario: Validate Commodity-price API endpoint response status" classname="Scenario: Validate Commodity-price API endpoint response status" time="0.082"/>
+  <testcase name="Given &apos;team&apos; API" classname="Scenario: Validate team API endpoint response status" time="0"/>
+  <testcase name="When a GET request is made to the team API" classname="Scenario: Validate team API endpoint response status" time="0"/>
+  <testcase name="Then team API response should be OK" classname="Scenario: Validate team API endpoint response status" time="0"/>
+  <testcase name="Scenario: Validate team API endpoint response status" classname="Scenario: Validate team API endpoint response status" time="0.081"/>
+  <testcase name="Given &apos;team&apos; API" classname="| All Analysts | Economics | Macro Strategy and FX | Rates | Credit | Commodities | Thematics, Geopolitics, Flows |" time="0"/>
+  <testcase name="When a GET request is made to the team API" classname="| All Analysts | Economics | Macro Strategy and FX | Rates | Credit | Commodities | Thematics, Geopolitics, Flows |" time="0"/>
+  <testcase name="Then response should show valid group names:" classname="| All Analysts | Economics | Macro Strategy and FX | Rates | Credit | Commodities | Thematics, Geopolitics, Flows |" time="0"/>
+  <testcase name="| All Analysts | Economics | Macro Strategy and FX | Rates | Credit | Commodities | Thematics, Geopolitics, Flows |" classname="| All Analysts | Economics | Macro Strategy and FX | Rates | Credit | Commodities | Thematics, Geopolitics, Flows |" time="0.082"/>
+  <testcase name="Given &apos;team&apos; API" classname="| Africa | Asia | Europe | MENA | Thematic | Geopolitics | Flows |" time="0"/>
+  <testcase name="When a GET request is made to the team API" classname="| Africa | Asia | Europe | MENA | Thematic | Geopolitics | Flows |" time="0"/>
+  <testcase name="Then response should show valid sub-group names:" classname="| Africa | Asia | Europe | MENA | Thematic | Geopolitics | Flows |" time="0"/>
+  <testcase name="| Africa | Asia | Europe | MENA | Thematic | Geopolitics | Flows |" classname="| Africa | Asia | Europe | MENA | Thematic | Geopolitics | Flows |" time="0.081"/>
+  <testcase name="Given &apos;team&apos; API" classname="| Marios | Maratheftis | Marios Maratheftis | Chief Economist | Marios is the Bank’s Chief Economist | +971 4508 3311 |  | GL1 | false | 507 | Marios.er-techtest@sc.com |" time="0"/>
+  <testcase name="When a GET request is made to the team API" classname="| Marios | Maratheftis | Marios Maratheftis | Chief Economist | Marios is the Bank’s Chief Economist | +971 4508 3311 |  | GL1 | false | 507 | Marios.er-techtest@sc.com |" time="0"/>
+  <testcase name="Then response should show valid analyst details:" classname="| Marios | Maratheftis | Marios Maratheftis | Chief Economist | Marios is the Bank’s Chief Economist | +971 4508 3311 |  | GL1 | false | 507 | Marios.er-techtest@sc.com |" time="0"/>
+  <testcase name="| Marios | Maratheftis | Marios Maratheftis | Chief Economist | Marios is the Bank’s Chief Economist | +971 4508 3311 |  | GL1 | false | 507 | Marios.er-techtest@sc.com |" classname="| Marios | Maratheftis | Marios Maratheftis | Chief Economist | Marios is the Bank’s Chief Economist | +971 4508 3311 |  | GL1 | false | 507 | Marios.er-techtest@sc.com |" time="0.252"/>
+  <testcase name="Given &apos;tradeIdeas&apos; API" classname="| 8613 |" time="0"/>
+  <testcase name="Given &apos;tradeIdeas&apos; API" classname="| 8613 |" time="0"/>
+  <testcase name="And A valid user having trade data:" classname="| 8613 |" time="0"/>
+  <testcase name="And A valid user having trade data:" classname="| 8613 |" time="0"/>
+  <testcase name="When a GET request is made to the tradeIdeas-Fx API" classname="| 8613 |" time="0"/>
+  <testcase name="Then tradeIdeas API response should be OK" classname="| 8613 |" time="0"/>
+  <testcase name="Then tradeIdeas API response should be OK" classname="| 8613 |" time="0"/>
+  <testcase name="When a GET request is made to the tradeIdeas-Rates API" classname="| 8613 |" time="0"/>
+  <testcase name="Given A valid user having subscriptions:" classname="| 7479 |" time="0"/>
+  <testcase name="When a POST request is made to the user API" classname="| 7479 |" time="0.002"/>
+  <testcase name="Then user API response should be OK" classname="| 7479 |" time="0"/>
+  <testcase name="| 7479 |" classname="| 7479 |" time="0.08"/>
+  <testcase name="Given A valid user having subscriptions:" classname="| 1124 |" time="0"/>
+  <testcase name="When a GET request is made to the user API" classname="| 1124 |" time="0"/>
+  <testcase name="Then user API response should be OK" classname="| 1124 |" time="0"/>
+  <testcase name="| 1124 |" classname="| 1124 |" time="0.082"/>
+  <testcase name="Given A valid user having subscriptions:" classname="| 8377 |" time="0"/>
+  <testcase name="When a GET request is made to the user API" classname="| 8377 |" time="0"/>
+  <testcase name="Then user API response should be OK" classname="| 8377 |" time="0"/>
+  <testcase name="| 8377 |" classname="| 8377 |" time="0.082"/>
+  <testcase name="Given A valid user having subscriptions:" classname="| 8377 | COMMODITIES | CREDIT | ECONOMICS | FX | RATES |" time="0"/>
+  <testcase name="When a GET request is made to the user API" classname="| 8377 | COMMODITIES | CREDIT | ECONOMICS | FX | RATES |" time="0"/>
+  <testcase name="Then response should show all asset classes specific to the user:" classname="| 8377 | COMMODITIES | CREDIT | ECONOMICS | FX | RATES |" time="0"/>
+  <testcase name="| 8377 | COMMODITIES | CREDIT | ECONOMICS | FX | RATES |" classname="| 8377 | COMMODITIES | CREDIT | ECONOMICS | FX | RATES |" time="0.117"/>
+  <testcase name="Given A valid Research Portal user:" classname="| 8377 | CREDIT | ECONOMICS |  |  |  |" time="0"/>
+  <testcase name="When a GET request is made to the user API" classname="| 8377 | CREDIT | ECONOMICS |  |  |  |" time="0"/>
+  <testcase name="Then response should show included entitlements for the user:" classname="| 8377 | CREDIT | ECONOMICS |  |  |  |" time="0"/>
+  <testcase name="| 8377 | CREDIT | ECONOMICS |  |  |  |" classname="| 8377 | CREDIT | ECONOMICS |  |  |  |" time="0.136"/>
+  <testcase name="Given A valid Research Portal user:" classname="| 8613 | CREDIT | COMMODITIES | FX | RATES | ECONOMICS |" time="0"/>
+  <testcase name="When a GET request is made to the user API" classname="| 8613 | CREDIT | COMMODITIES | FX | RATES | ECONOMICS |" time="0"/>
+  <testcase name="Then response should show included entitlements for the user:" classname="| 8613 | CREDIT | COMMODITIES | FX | RATES | ECONOMICS |" time="0"/>
+  <testcase name="| 8613 | CREDIT | COMMODITIES | FX | RATES | ECONOMICS |" classname="| 8613 | CREDIT | COMMODITIES | FX | RATES | ECONOMICS |" time="0.13"/>
+  <testcase name="Given A valid user having subscriptions:" classname="| 8616 | MYNDR |  |  |  |" time="0"/>
+  <testcase name="When a GET request is made to the user API" classname="| 8616 | MYNDR |  |  |  |" time="0"/>
+  <testcase name="Then response should show excluded entitlements for the user:" classname="| 8616 | MYNDR |  |  |  |" time="0"/>
+  <testcase name="| 8616 | MYNDR |  |  |  |" classname="| 8616 | MYNDR |  |  |  |" time="0.082"/>
+  <testcase name="Given A valid user having subscriptions:" classname="| 8377 | EML | MBL | WBS |" time="0"/>
+  <testcase name="When a GET request is made to the user API" classname="| 8377 | EML | MBL | WBS |" time="0"/>
+  <testcase name="Then response should show the codes to send notifications:" classname="| 8377 | EML | MBL | WBS |" time="0"/>
+  <testcase name="| 8377 | EML | MBL | WBS |" classname="| 8377 | EML | MBL | WBS |" time="0.127"/>
+  <testcase name="Given A valid user having subscriptions:" classname="| 8377 | IMM | Singapore Standard Time |" time="0"/>
+  <testcase name="When a GET request is made to the user API" classname="| 8377 | IMM | Singapore Standard Time |" time="0"/>
+  <testcase name="Then response should show the frequency code and timezone:" classname="| 8377 | IMM | Singapore Standard Time |" time="0"/>
+  <testcase name="| 8377 | IMM | Singapore Standard Time |" classname="| 8377 | IMM | Singapore Standard Time |" time="0.121"/>
+  <testcase name="Given an invalid rp user:" classname="| 99999 |" time="0"/>
+  <testcase name="When a GET request is made to the user API" classname="| 99999 |" time="0"/>
+  <testcase name="Then user API response should state that-User not found" classname="| 99999 |" time="0"/>
+  <testcase name="| 99999 |" classname="| 99999 |" time="0.082"/>
+  <testcase name="Given an invalid rp user:" classname="| 9999 |" time="0"/>
+  <testcase name="When a GET request is made to the user API" classname="| 9999 |" time="0"/>
+  <testcase name="Then user API response should state that-entitlements not found" classname="| 9999 |" time="0"/>
+  <testcase name="| 9999 |" classname="| 9999 |" time="0.081"/>
+</testsuite>

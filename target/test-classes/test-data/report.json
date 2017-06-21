@@ -1,0 +1,12 @@
+{
+  "reportRequests": [
+    {
+      "publicationType": "YR_AHEAD",
+      "reportCount": "1"
+    },
+    {
+      "publicationType": "ECON_WKLY",
+      "reportCount": "3"
+    }
+  ]
+}

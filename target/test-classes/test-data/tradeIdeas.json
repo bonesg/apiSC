@@ -1,0 +1,6 @@
+{
+  "tradeIdeasRequest": {
+    "assetClass": "assetClassCode",
+    "status": "myStatus"
+  }
+}

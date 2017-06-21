@@ -1,0 +1,70 @@
+"Glue Pattern","Description","Tags"
+"^click '(.+)'$","Click the given web element field.","genie3,selenium,interaction"
+"^open bookmark '(.+)'$","Opens the bookmark specified. This will return an error if the bookmark 
+specified does not exist. 
+Ex: 
+	open bookmark 'my favorite page'","genie3,selenium,navigation"
+"^refresh webpage$","Refreshes the current page on the browser. 
+","genie3,selenium,navigation"
+"^assert that alert message is '(.+)'(?: which times out (?:in|after) (\d+) (.+))?$","Assert that the alert/popup has the expected message.","genie3,selenium,assertion"
+"^switch to window with name '(.+)'$","Switches focus to a specified window. 
+","genie3,selenium,navigation"
+"^'(.+)' API$","",""
+"^bookmark '(.+)' as '(.+)'$","Bookmarks a URL with a given name 
+Ex: 
+	bookmark 'https://www.google.com.sg' as 'my search tool'","genie3,selenium,navigation"
+"^content and key data should be generated$","",""
+"^set baseurl as '(.+)'$","Sets the base URL to a specific URL.
+Ex: 
+	set baseurl as 'https://www.google.com.sg'","genie3,selenium,navigation"
+"^assert that title contains '(.+)'(?: which times out (?:in|after) (\d+) (.+))?$","Assert that the web page title contains the input text.","genie3,selenium,assertion"
+"^generated content and key is passed to the create token method$","",""
+"^switch to frame with name '(.+)'$","Switches focus to a specified frame name. 
+","genie3,selenium,navigation"
+"^delete bookmark '(.+)'$","Deletes a bookmark
+Ex: 
+	delete bookmark 'my search tool'","genie3,selenium,navigation"
+"^accept alert$","Accepts an alert/popup if an alert has been raised.","genie3,selenium,interaction"
+"^open '(.+)'$","Opens the provided URL on the browser. 
+Ex: 
+	open 'https://www.google.com.sg'","genie3,selenium,navigation"
+"^assert that current url is '(.+)'(?: which times out (?:in|after) (\d+) (.+))?$","Assert the current url matches the expectation.","genie3,selenium,assertion"
+"^set window height to (\d+)$","Sets the height of the browser window.","genie3,selenium,interaction"
+"^clear '(.+)'$","Clears the given web element field.","genie3,selenium,interaction"
+"^navigate forward$","Navigates forward on the page history.
+Ex: 
+	navigate forward","genie3,selenium,navigation"
+"^open baseurl$","Opens the base URL specified.
+The baseurl is initially set for you by Genie (contact your dev team/Genie Core team for more details).Ex: 
+	open baseurl","genie3,selenium,navigation"
+"^set window size to (\d+)x(\d+)$","Sets the width and height of the browser window.","genie3,selenium,interaction"
+"^assert that attribute '(.+)' of '(.+)' matches '(.+)'(?: which times out (?:in|after) (\d+) (.+))?$","Assert that the specified attribute of the web element matches given text.","genie3,selenium,assertion"
+"^set window width to (\d+)$","Sets the width of the browser window.","genie3,selenium,interaction"
+"^assert that '(.+)' is not selected(?: which times out (?:in|after) (\d+) (.+))?$","Assert that the web element is NOT selected.","genie3,selenium,assertion"
+"^switch to frame '(.+)'$","Switches focus to a specified frame element. 
+","genie3,selenium,navigation"
+"^assert that '(.+)' contains '(.+)'(?: which times out (?:in|after) (\d+) (.+))?$","Assert that the web element's text contains the given text.","genie3,selenium,assertion"
+"^assert that elements within '(.+)' is$","Assert that the list of web element's text value matches against all the elements within the parent web element.","genie3,selenium,assertion"
+"^assert that title is '(.+)'(?: which times out (?:in|after) (\d+) (.+))?$","Assert that the web page title is equal to the input text.","genie3,selenium,assertion"
+"^reset baseurl$","Resets the base URL back to the initial base URL provided by Genie.
+Ex: 
+	reset baseurl","genie3,selenium,navigation"
+"^user should be registered successfully$","",""
+"^select '(.+)' from '(.+)'$","Selects an item in the web element.","genie3,selenium,interaction"
+"^a POST request is made to the activate API$","",""
+"^assert that elements within '(.+)' contains$","Assert that the list of text exists within the parent web element.","genie3,selenium,assertion"
+"^assert that '(.+)' is visible(?: which times out (?:in|after) (\d+) (.+))?$","Assert that the web element specified is visible.","genie3,selenium,assertion"
+"^user has valid SSL certificate$","",""
+"^dismiss alert$","Cancels an alert/popup if an alert has been raised.","genie3,selenium,interaction"
+"^navigate backward$","Navigates backward on the page history.
+Ex: 
+	navigate backward","genie3,selenium,navigation"
+"^assert that alert has been raised(?: which times out (?:in|after) (\d+) (.+))?$","Assert that an alert/popup has been displayed.","genie3,selenium,assertion"
+"^assert that '(.+)' is selected(?: which times out (?:in|after) (\d+) (.+))?$","Assert that the web element is selected.","genie3,selenium,assertion"
+"^activationKey API response should be OK$","",""
+"^assert that '(.+)' is '(.+)'(?: which times out (?:in|after) (\d+) (.+))?$","Assert that the web element's text is equal to the given text.","genie3,selenium,assertion"
+"^user has already generated the JWT token$","",""
+"^get screenshot$","Takes a screenshot of the current page and displays it on Genie Report.","genie3,selenium,interaction"
+"^token should be generated successfully$","",""
+"^type '(.+)' into '(.+)'$","Type the input text into the provided web element.","genie3,selenium,interaction"
+"^a POST request is made to the activationKey API$","",""

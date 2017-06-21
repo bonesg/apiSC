@@ -1,0 +1,10 @@
+{
+  "reportRequests": [
+    {
+      "filtersQuery": {
+        "reportType": "TOP_READS"
+      },
+      "reportCount": "5"
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+#################################
+# csv
+#################################
+# Enable the module.
+csv.enabled=true
+
+
+#################################
+# enrich
+#################################
+# Enable the module.
+enrich.enabled=true
+
+
+#################################
+# excel
+#################################
+# Enable the module.
+excel.enabled=true
+
+
+#################################
+# info
+#################################
+# Enable the module.
+info.enabled=true
+
+# Displays the glues.
+info.glue=true
+
+# Where to output the glue. Options include 'file' or 'console'.
+info.glue.output=FILE
+
+# The filename the glue information will be written to. Ignored if 'info.glue.output' is 'console'.
+info.glue.output.filename=glue
+
+# The output format of the glue. Options include 'csv' or 'html'.
+info.glue.output.format=CSV
+
+# Displays the active modules.
+info.module=true
+
+# Where to output the modules. Options include 'file' or 'console'.
+info.module.output=FILE
+
+# The filename the module information will be written to. Ignored if 'info.module.output' is 'console'.
+info.module.output.filename=modules
+
+# The output format of the modules. Options include 'txt' or 'html'.
+info.module.output.format=TXT
+
+# Displays the modules settings. Ignored if 'modules' is false.
+info.module.settings=true
+
+# The output directory for any info files.
+info.output=target\info
+
+
+#################################
+# java
+#################################
+# Enable the module.
+java.enabled=true
+
+
+#################################
+# report
+#################################
+# Enable the module.
+report.enabled=true
+
+# <For Genie internal use only!> Hostname where the Elasticsearch DB is located
+report.hostname=10.20.168.110
+
+# The Regular Expression that matches Tags as Jira references.
+report.jira.pattern=@\w+-\d+
+
+# Place reports in a timestamped directory.
+report.jira.url=https://jira.global.standardchartered.com/browse/
+
+# <For Genie internal use only!> Enable/disable sending of report to server.
+report.online=true
+
+# The location to place reports.
+report.path=target\reports
+
+# <For Genie internal use only!> HTTP port that will be used to connect to the Elasticsearch cluster.
+report.port=9200
+
+# The name of the project.
+report.project.name=research-portal
+
+# The version of the project.
+report.project.version=
+
+# Place reports in a timestamped directory.
+report.timestamp=false
+
+
+#################################
+# runlog
+#################################
+# Enable the module.
+runlog.enabled=true
+
+# Hostname of the target log server.
+runlog.hostname=10.20.168.110
+
+# Toggle enable/disable sending run log to the server for build and test purpose.
+runlog.online=true
+
+# Port number of the target log server.
+runlog.port=9200
+
+# The filename containing the run-identifier generated for that particular genie execution
+runlog.run_identifier_filename=runIdentifier.txt
+
+# The directory where the run identifier file will be dumped
+runlog.run_identifier_path=target
+
+
+#################################
+# selenium
+#################################
+# The base URL the browser should navigate to when first opened.
+selenium.base.url=
+
+# Description not specified.
+selenium.browser=CHROME
+
+# Description not specified.
+selenium.common.desired.capabilities=[acceptSslCerts=true, takesScreenshot=true]
+
+# The location on the local machine to store downloaded drivers.
+selenium.download.directory=drivers
+
+# Enable driver download function.
+selenium.download.enable=true
+
+# The base URL of the driver repository.
+selenium.download.repository.url=https://bitbucket.global.standardchartered.com/projects/FMT/repos/genie-artifacts/browse/selenium-drivers
+
+# Enable driver download function.
+selenium.driver.autodownload.enable=true
+
+# The location on the local machine to store downloaded drivers.
+selenium.driver.directory=drivers
+
+# The base URL of the driver repository.
+selenium.driver.repository.url=https://bitbucket.global.standardchartered.com/projects/FMT/repos/genie-artifacts/browse/selenium-drivers
+
+# Description not specified.
+selenium.driver.retention=DRIVER_PER_SCENARIO
+
+# The driver wait period in seconds.
+selenium.driver.wait.timeout=10
+
+# The location of the element.json file(s).
+selenium.element.path=[classpath:elements.json]
+
+# Enable the module.
+selenium.enabled=true
+
+# The URL of the selenium grid hub.
+selenium.hub.url=
+
+# The configuration profile to be used.
+selenium.profile=default
+
+# The proxy autoconfig url.
+selenium.proxy.autoconfig.url=http://scybernetwpad/wpad.dat
+
+# The ftp proxy host to use.
+selenium.proxy.ftp.host=sg-cbp-lan-prx01.global.standardchartered.com
+
+# The ftp proxy port to use.
+selenium.proxy.ftp.port=8080
+
+# The http proxy host to use.
+selenium.proxy.http.host=sg-cbp-lan-prx01.global.standardchartered.com
+
+# The http proxy port to use.
+selenium.proxy.http.port=8080
+
+# The proxy exceptions.
+selenium.proxy.no.proxy=localhost,127.0.0.1,*.standardchartered.com
+
+# The proxy password.
+selenium.proxy.password=
+
+# The socks proxy host to use.
+selenium.proxy.socks.host=sg-cbp-lan-prx01.global.standardchartered.com
+
+# The socks proxy port to use.
+selenium.proxy.socks.port=8080
+
+# The socks version to use.
+selenium.proxy.socks.version=5
+
+# The ssl proxy host to use.
+selenium.proxy.ssl.host=sg-cbp-lan-prx01.global.standardchartered.com
+
+# The ssl proxy port to use.
+selenium.proxy.ssl.port=8080
+
+# The proxy username.
+selenium.proxy.username=
+
+# Description not specified.
+selenium.run.mode=LOCAL
+
+# The location of the element.json file(s).
+selenium.web.element.path=[classpath:elements.json]
+
+
+#################################
+# snippet
+#################################
+# Enable the module.
+snippet.enabled=true
+
+
+#################################
+# update
+#################################
+# Maven artifactId of the artifact to check.
+update.artifact=genie-core
+
+# Enable the module.
+update.enabled=true
+
+# Maven groupId of the artifact to check.
+update.group=com.standardchartered.genie
+
+# List of repositories to check.
+update.repositories=[http://sabrebuild1.uk.standardchartered.com:8081/nexus/content/repositories/releases/, http://sabrebuild1.uk.standardchartered.com:8081/nexus/content/repositories/snapshots/]
+
+

@@ -1,0 +1,11 @@
+{
+  "reportRequests": [
+    {
+      "filtersQuery": {
+        "researchReason": "BREXIT"
+      },
+      "reportCount": "12",
+      "offset": "24"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+/* this style is derived from original library's reporting.css, class .inner-level */
+.snippet-inner-level {
+    margin-top: 2px;
+    margin-left: 20px;
+    padding-bottom: 2px;
+    padding-left: 1px;
+}

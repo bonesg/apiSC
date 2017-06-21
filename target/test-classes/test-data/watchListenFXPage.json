@@ -1,0 +1,11 @@
+{
+  "reportRequests": [
+    {
+      "filtersQuery": {
+        "reportType": "WATCH_LISTEN",
+        "assetClasses": [ "FX" ]
+      },
+      "reportCount": "3"
+    }
+  ]
+}

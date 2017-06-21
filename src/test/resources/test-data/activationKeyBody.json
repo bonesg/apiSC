@@ -1,0 +1,9 @@
+{
+  "publicKey" : "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApZ4fzLOpvo3L+5kCrcf1D2gkbiw+Rd/9xWqkww5lqAy94sfQ6Hw4tAhHec6vzDkV2/xbGcbLYBtCHE88nWccpKtG+1KZVdImZg+ehYtPjnE+4t81UUuXfeBloM0pY8/LKkNahEgB2004D04lRMTvuTjO8Dp2h2t/QDItdDsB4SdsAIQY93QM8np1TNv5RG8xmk1SR5TQ0C2ghYLSW2G6sUnwJVJp3OdY20tCuPwPhiZgiI1bQnoZ0K0NQaWMAqRsl7ZBSiRhtlZP3bc1fxPLMzGE9unAz4W5Z4mfGjssrJ6RtgPEUHPp9BZeFzU+AgA3CBwYhd+dzUf7JMoV9HSmRQIDAQAB",
+  "certificateThumbprint":"89:FD:4B:F6:79:67:54:63:A8:35:52:38:B1:C0:70:18:20:10:7A:0F",
+  "groupId" : "INDIGOTS",
+  "propertyBag" : {
+    "supportEmailAddress" : "maneesh.kumar1@sc.com",
+    "supportContactName" : "Maneesh"
+  }
+}

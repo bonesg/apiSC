@@ -1,0 +1,16 @@
+{
+  "reportRequests": [
+    {
+      "filtersQuery": {
+        "publicationTypes": [ "ECON_WKLY" ]
+      },
+      "reportCount": "1"
+    },
+    {
+      "filtersQuery": {
+        "publicationTypes": [ "GLOBAL_FOCUS" ]
+      },
+      "reportCount": "2"
+    }
+  ]
+}

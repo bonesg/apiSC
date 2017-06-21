@@ -1,0 +1,109 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 880423778,
+              "status": "passed"
+            },
+            "match": {
+              "location": "commonApiMethods.setup_API_Configurations()"
+            }
+          }
+        ],
+        "line": 18,
+        "name": "Validate activation key is generated successfully",
+        "description": "",
+        "id": "generate-activation-key-and-jwt;validate-activation-key-is-generated-successfully",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 168755844,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "\u0027activationKey and activate\u0027 API",
+            "match": {
+              "arguments": [
+                {
+                  "val": "activationKey and activate",
+                  "offset": 1
+                }
+              ],
+              "location": "commonApiMethods.an_API(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 12999571,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "user has valid SSL certificate",
+            "match": {
+              "location": "activationKey.user_has_valid_SSL_certificate()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3177802732,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "user has already generated the JWT token",
+            "match": {
+              "location": "activationKey.user_has_already_generated_the_JWT_token()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 16926879143,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "a POST request is made to the activate API",
+            "match": {
+              "location": "activationKey.a_POST_request_is_made_to_the_activate_API()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 307303,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "user should be registered successfully",
+            "match": {
+              "location": "activationKey.user_should_be_registered_successfully()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 17,
+            "name": "@ab"
+          },
+          {
+            "line": 17,
+            "name": "@registerMe"
+          }
+        ]
+      }
+    ],
+    "name": "Generate Activation Key and JWT",
+    "description": "",
+    "id": "generate-activation-key-and-jwt",
+    "keyword": "Feature",
+    "uri": "features/api/activationKey.feature"
+  }
+]

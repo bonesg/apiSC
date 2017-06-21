@@ -1,0 +1,10 @@
+{
+  "reportRequests": [
+    {
+      "filtersQuery": {
+        "reportType": "WATCH_LISTEN"
+      },
+      "reportCount": "3"
+    }
+  ]
+}
