@@ -31,6 +31,7 @@ Ex:
 "^assert that current url is '(.+)'(?: which times out (?:in|after) (\d+) (.+))?$","Assert the current url matches the expectation.","genie3,selenium,assertion"
 "^set window height to (\d+)$","Sets the height of the browser window.","genie3,selenium,interaction"
 "^clear '(.+)'$","Clears the given web element field.","genie3,selenium,interaction"
+"^a POST request is made to akamai endpoint$","",""
 "^navigate forward$","Navigates forward on the page history.
 Ex: 
 	navigate forward","genie3,selenium,navigation"

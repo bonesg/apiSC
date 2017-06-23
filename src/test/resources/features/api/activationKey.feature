@@ -22,3 +22,11 @@ Feature: Generate Activation Key and JWT
     When a POST request is made to the activate API
     Then user should be registered successfully
 
+    @ab @akamai
+    Scenario: Akamai user registration
+      Given 'activationKey and activate' API
+      And user has valid SSL certificate
+      And user has already generated the JWT token
+      When a POST request is made to akamai endpoint
+      Then user should be registered successfully
+

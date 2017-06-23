@@ -8,6 +8,8 @@ import common.JWT;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Map;
 
 /**
@@ -16,12 +18,18 @@ import java.util.Map;
 public class JWTTest {
 
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void createToken_handles_invalid_key() throws Exception {
+
+        try(InputStream is = new URL("https://apitest.standardchartered.com").openStream()) {
+            System.out.println(IOUtils.toString(is, "utf-8"));
+        }
+
         JWT.createToken(Lists.newArrayList(), null);
     }
 
-    @Test
+//    @Test
+
     public static String createToken(String activateKeyContent, String activateKey) throws Exception {
         Map<String,Object> activationRequest = Maps.newHashMap();
         activationRequest.put("webHookUrl", "http://mywebhook");

@@ -11,7 +11,7 @@ import com.standardchartered.genie.junit.Genie;
         "classpath:com.channels.ab.glue",
         "classpath:config"
         },
-        tags = {"@registerMe","~@ignore"},
+        tags = {"@akamai","~@ignore"},
         strict = true
 )
 public class apiTest {
