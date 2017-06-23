@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+ <proxies>
+ 		<proxy>
+            <id>sirl</id>
+            <active>true</active>
+            <protocol>http</protocol>
+           	<host>10.65.1.33</host> 
+            <port>8080</port>
+            <nonProxyHosts>*.scb.net|*.standardchartered.com</nonProxyHosts>
+        </proxy>
+    </proxies>
+    <servers>
+     </servers>
+   <profiles>
+   </profiles>
+	<mirrors>
+<mirror>
+      <id>artifactory</id>
+      <mirrorOf>*</mirrorOf>
+      <name>artifactory</name>
+      <url>http://uklvadapp004:8081/artifactory/remote-repos</url>
+    </mirror>
+	</mirrors> 
+ 
+</settings>
