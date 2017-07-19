@@ -1,0 +1,30 @@
+@When("^a POST request is made to akamai endpoint$")
+    public void a_POST_request_is_made_to_akamai_endpoint() throws Throwable {
+       RestAssuredConfig.RestConfigAkamai();
+        KeyStore keyStore = null;
+        String token = null;
+        token = new Scanner(new File("./src/test/resources/test-data/token.txt")).useDelimiter("\\Z").next();
+
+        keyStore = KeyStore.getInstance("PKCS12");
+        keyStore.load(new FileInputStream("./src/test/resources/test-data/certificate.pfx"), "123456".toCharArray());
+        org.apache.http.conn.ssl.SSLSocketFactory clientAuthFactory = null;
+        clientAuthFactory = new org.apache.http.conn.ssl.SSLSocketFactory(keyStore,"123456");
+        SSLConfig config = null;
+        config = new SSLConfig().with().sslSocketFactory(clientAuthFactory).and().allowAllHostnames();
+        RestAssured.config = RestAssured.config().sslConfig(config);
+        response= given().contentType(ContentType.TEXT)
+                .body(token)
+                .when()
+                //.post(url)
+                .post(EndPoint.POST_ActivateUser)
+                .thenReturn()
+                .asString();
+
+        validatableResponse = given().contentType(ContentType.TEXT)
+                .body(token)
+                .when()
+                //.post(url)
+                .post(EndPoint.POST_ActivateUser)
+                .then();
+       System.out.println(response);
+    }
