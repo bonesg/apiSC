@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.5" jmeter="2.10 r1533061">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="WebhookMessage" elementType="Argument">
+            <stringProp name="Argument.name">WebhookMessage</stringProp>
+            <stringProp name="Argument.value">\[ { \&quot;groupId\&quot;: \&quot;INDGROUP\&quot;, \&quot;transactionIdentifier\&quot;: { \&quot;type\&quot;: \&quot;Other\&quot;, \&quot;identifier\&quot;: \&quot;a2c198e9-3ac8-412b-b5ba-65c4756f4076\&quot; },\&quot;creditDate\&quot;: \&quot;2015-11-16\&quot;, \&quot;accountIdentifier\&quot;: { \&quot;accountId\&quot;: \&quot;17082017\&quot;, \&quot;currencyCode\&quot;: { \&quot;isoCode\&quot;: \&quot;INR\&quot; }, \&quot;bankCode\&quot;: \&quot;SCBLINBBXXX\&quot; }, \&quot;debitDate\&quot;: \&quot;2015-11-16\&quot;, \&quot;adviceType\&quot;: \&quot;Credit\&quot;, \&quot;transactionCode\&quot;: \&quot;002\&quot;, \&quot;transactionDescription\&quot;: \&quot;UPI PAY - SCB Acct to Bene Acct SCB &amp; Non-SCB - DR\&quot;, \&quot;postExecutionBalance\&quot;: { \&quot;currencyCode\&quot;: \&quot;INR\&quot;, \&quot;amount\&quot;: 99803990 }, \&quot;preExecutionBalance\&quot;: { \&quot;currencyCode\&quot;: \&quot;INR\&quot;, \&quot;amount\&quot;: 99809590 }, \&quot;transactionFreeText\&quot;: [ \&quot;UPI/715615346607/\&quot;, \&quot;UPI CYCLE 2/SIVAAACHEN@SCBL/\&quot;, \&quot;75110011017/EMAILSLOWNESS/\&quot;, \&quot;123-13123-13123\&quot; ], \&quot;transactionAmount\&quot;: { \&quot;currencyCode\&quot;: \&quot;INR\&quot;, \&quot;amount\&quot;: 5600 }, \&quot;clientIdentifier\&quot;: { \&quot;type\&quot;: \&quot;Other\&quot;, \&quot;identifier\&quot;: \&quot;\&quot; }, \&quot;externalIdentifier\&quot;: { \&quot;type\&quot;: \&quot;Other\&quot;, \&quot;identifier\&quot;: \&quot;\&quot; } } ]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group -Peek" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time"></stringProp>
+        <longProp name="ThreadGroup.start_time">1503383460000</longProp>
+        <longProp name="ThreadGroup.end_time">1503383460000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+          <stringProp name="CounterConfig.start">7500</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">5</stringProp>
+          <stringProp name="CounterConfig.name">counter_value</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+          <stringProp name="cacheKey"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import javax.jms.*;
+import javax.xml.parsers.ParserConfigurationException;
+import org.apache.commons.io.IOUtils;
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.command.ActiveMQTopic;
+import org.springframework.core.io.ClassPathResource;
+import javax.jms.*;
+
+String amount = ${counter_value};
+String currencyCode = &quot;INR&quot;;
+String accountNumber = &quot;17082017&quot;;
+String trxType = &quot;C&quot;;
+String bic = &quot;SCBLINBBXXX&quot;;
+String filepath = &quot;C:/Users/1571168.ZONE1-SCBNET/Desktop/rta-template.xml&quot;;
+DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+log.info(filepath);
+Document doc = docBuilder.parse(filepath);
+Node staff = doc.getElementsByTagName(&quot;notifyCorporateFinancialTransactionRequest&quot;).item(0);
+log.info(staff.toString());
+NodeList list = staff.getChildNodes();
+Node student = list.item(3);
+                log.info(student.toString());
+                NodeList list1 = student.getChildNodes();
+                Node trxnRequest = list1.item(5);
+                log.info(trxnRequest.toString());
+                NodeList list2 = trxnRequest.getChildNodes();
+                Node trxDetail = list2.item(1);
+                log.info(trxDetail.toString());
+                NodeList list3 = trxDetail.getChildNodes();
+                Node trxEntry = list3.item(1);
+                //System.out.println(student);
+                NodeList lists = trxEntry.getChildNodes();
+                for (int i = 0; i &lt; lists.getLength(); i++) {
+                    Node node = lists.item(i);
+                    // get the salary element, and update the value
+                    if (node.getNodeName().equals(&quot;tns:TrnAmount&quot;)) {
+                        
+                        node.setTextContent(&quot;&quot;+amount);
+                        System.out.println(node.getTextContent());
+                    }
+                    if (node.getNodeName().equals(&quot;tns:Account&quot;)) {
+                        NodeList accountList = node.getChildNodes();
+                        Node currencyCodeNode = accountList.item(1);
+                        currencyCodeNode.setTextContent(currencyCode);
+                        System.out.println(currencyCodeNode.getTextContent());
+                        Node accountNo = accountList.item(3);
+                        accountNo.setTextContent(accountNumber);
+                        System.out.println(accountNo.getTextContent());
+                    }
+                    if (node.getNodeName().equals(&quot;tns:CreditDebitFlag&quot;)) {
+                        node.setTextContent(trxType);
+                        System.out.println(node.getTextContent());
+                    }
+                    if (node.getNodeName().contains(&quot;tns:SwiftAddress&quot;)) {
+                        node.setTextContent(bic);
+                        System.out.println(node.getTextContent());
+                    }
+                }
+                TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                Transformer transformer = transformerFactory.newTransformer();
+                DOMSource source = new DOMSource(doc);
+                StreamResult result = new StreamResult(new File(filepath));
+                transformer.transform(source, result);
+log.info(&quot;before producer sent&quot;);
+            ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(&quot;tcp://10.23.210.60:61616&quot;);
+            Connection con = null;
+            con = connectionFactory.createConnection();
+            Session session = con.createSession(true, Session.AUTO_ACKNOWLEDGE);
+          
+            MessageProducer producer = session.createProducer(new ActiveMQTopic(&quot;scbCoreBankingTxnAlertCorpFinTxnNotifyV1T&quot;));
+		TextMessage txt = session.createTextMessage();
+        txt.setText(IOUtils.toString(new FileInputStream(new File(filepath))));
+        
+		producer.send(txt);
+		        log.info(&quot;after producer sent&quot;);
+            session.commit();
+            producer.close();
+            session.close();
+            con.close();
+      log.info(&quot;Message published&quot;);
+
+     </stringProp>
+          <stringProp name="scriptLanguage">java</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Peek" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">uklvadapp006</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/cib/core/event/peek</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">JWTToken</stringProp>
+                <stringProp name="Header.value">eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJTQ0IiLCJhdWQiOiJTQ0ItQVBJQmFua2luZyIsImlhdCI6MTUwMjk0MTc5NywiZXhwIjozMDAwMDE1MDI5NDE3OTcsInBheWxvYWQiOnsiZW5hYmxlV2ViSG9vayI6InRydWUiLCJ3ZWJIb29rVXJsIjoiaHR0cDovLzE4LjIyMC4xNTYuMi93ZWJob29rIiwiYWN0aXZhdGlvbktleSI6eyJjb250ZW50IjoiZ2UyT2F5dWZNNnV2Z3ZZYzBWdkxlOTRTYmt5NzdveXJlenhSSzJpL3hocndkRitiQVZicldJcUNZeWFWYXpOZjRScWFlTkJhTkZNSW9BSGdZenhWTFYzdmRoNnVod2V3dGJHelpnNFo0RDVjd2dtZUtiZFpYd2tvOUNEMGE4S3F0TmRENDBVbkRVRU1NK0RZYVZtTlQ0c0dJMEI4K3pJZE0wVDFoVkE5NzdJVDYzYzJaYjNyR29EZGJZWG9xaGRmRWxLL2hJMU5NUDZzUXUzRWdXSlh5UEJjWnNrTkpoeDQ0WWkvV3BVSkNtaU5mcGliREJlWUllKzExNWEyTTJvZzdRcnlrQ0dVQ2RXdUwrYVlJYXlaT200eHgxZmFscUJvNE80NlVnaHp5bUNhN0pJc0lLN0pRMUdZK0RXbDRuN204V3NTVlRpOUVPaithTzlCT0dYeUtmZWdqRXNPcU8wZDlPVFlkbWpFRHNUWHlhWVlQV2JpcnpnYWcwcEJQVXdNaUZodFVOdE9ZSENSV3FVVDdEM1U5Qk81UDN2VmF4ajVjNHUxMHM1elRPR1BRd1d3S291QzBmS01sdldsTXByMDdJamd4djdlNDI5QkF6ZkdlVk1mekt4OGM4QUFWaWVXNndlQ2NYMVB2WlFOWE9FZTJHNmRpdzRyQ0lEQnpnRmwwdGpZVmRwUkhqZDJtWjRJakt1MklTMHE2bk9pNjRRYmVkQXNGckVMZUowYm5xZE9udGk5SnR5N3c0dk43ZWNuQUZVZTlGSHB6Vk9uMnAva0thSVQ3ZUxFUytkcVZ3Tk8vN3YyZkhsbnpyWlVWY3didXplbXdEek9HZXlCYUtCZnpSeVJERENGVFU4SkhueGtrZnArM25RNE5aOU9iQTVscHJWdis4VlhhdW5rWGcreGRRMGRiU3RkOXIzbTBwUjhkQVBOUGs5czFOYUtXRXdWUWpJVFZOelRvZTFlaWxobVpGRis0NEdMS0JFME1zaXI3WVZVV1pUbmtvcld2dzVHMjZkeU1DV3E0a2JwRUxkazczZjd5OU1ubDluM1phYzEwZ0pzcFNOcGJRWDBMTWd5MUwrdENyYlMrcnJRK0ZpZyIsImtleSI6IlpSU3IrSzVBcWR1QTZ3aVk2S21NSS9LTVE2d2NRem5HTzg1ZWJCVVZjdnlqOXZDVEpsRDdQdDNCdHlPUktPQ2grYnNLUi9iRVpBWlNqcG1OTzVlZ0JkRDBzZXdhNkRGaEpNQ0hENG1DS2hDT2RrQ2VreXlST2VtVHUycGx0cWNoNnUwc281a3F2TTBVYmVMcHF0RFRDZ3lKc3ZqdmVjTUNKK0MyZ1ZDZWJhc05lckVmZzM0UXN1ZUVSQlRiZlN6dFpMelVZRUtDaWI4Q2I4L0xtcFN3dFBxam5Nd1M1ckw5TkY2Q0kwS09vQVhtMXRCN0pUMFc1SXR1akNST3FJM2JGUTFlSDlIbzljeFAzWmt4cTJxc2RZYlNkS0phRnZ5eGlDeGQwRE8vOHphVjJoRzMxRStaSVFhTER0MHBORWtScEFaRHgrN1VpbWY5WHpyeXNJTENqQVx1MDAzZFx1MDAzZCJ9fX0.IvSNfIrsitDimWf9cfkCOnSEIYPxgU7o2LrUfdl026XqR7R_UM-SY24SwiOKaHuFFrggeeRQ8DLFhKGWcMiW1daadOxc_l1gY82U7Nerj6Y-9Wluz7Szdj_BmgplAqmAHrf2WvfQVTNnnbrID68cCw0K2fzPYT6ZKfFgGefYg86j6wF9FEeebSDm27l8d0_gB5JoPmDPkZPPLQzhIFByW294Ts1PeSxzLkhdP4dJ3ZvSK2BvNKzZQj8S-4aTB4C1O248cS8dFyUBxCjrCYld_XHOUi_76WkUZ2knAC8bVkXJTjIL3IRfQDs4k9Th50Qhma1-CnjAubTReK233zA0YA</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">X-Client-Certifcate</stringProp>
+                <stringProp name="Header.value">MIIFPDCCBCSgAwIBAgIQBhCY9/Oua9sbbZUiKb7/ETANBgkqhkiG9w0BAQsFADBlMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMSQwIgYDVQQDExtEaWdpQ2VydCBTSEEyIEFzc3VyZWQgSUQgQ0EwHhcNMTcwNTIzMDAwMDAwWhcNMTgwNTIzMTIwMDAwWjBXMQswCQYDVQQGEwJTRzESMBAGA1UEBxMJU2luZ2Fwb3JlMSAwHgYDVQQKExdTdGFuZGFyZCBDaGFydGVyZWQgQmFuazESMBAGA1UEAxMJQWNtZSBDb3JwMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx+79CIYpTbQdM93rnQe2y+gMCAZGKfwVuyT4xjYDmYfKr4+/6F2OUoVAP0wsS+EufaFOdwGRYD2Xcg8fH/jwp4dynekLNmO94et7pDBIQoHoyqUz5IfYIhbkwUV5zAjJEfrAlLXEfrBB+j8v6/DMWcYoFvXvq2mA/rZCr5S5L7RCKj17Tup6OpRasbohHADLwLx/gk/gaX7fAzV/4jETHw1zxRg9jT8WaPp+Qs3KeQlXqDEX6vpH12flHDl1dF+QfuKN5jlKG77yKsThglYwRTeaxrL3RgU8X6P8T1S5xpzGCIlE7RHFTpta1Hxn3oD59AvhQkQ8CkYyOWzt6GS6uQIDAQABo4IB9DCCAfAwHwYDVR0jBBgwFoAU5wIjgABP2Ne8lAvZP3Q5STI8inkwHQYDVR0OBBYEFIzxOlIwI/C/ktPcOkYtZA1XWTKrMAwGA1UdEwEB/wQCMAAwJgYDVR0RBB8wHYEbcHJhc2FubmEua2FuYWdhc2FiYWlAc2MuY29tMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwQwYDVR0gBDwwOjA4BgpghkgBhv1sBAECMCowKAYIKwYBBQUHAgEWHGh0dHBzOi8vd3d3LmRpZ2ljZXJ0LmNvbS9DUFMwgYgGA1UdHwSBgDB+MD2gO6A5hjdodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyQXNzdXJlZElEQ0EtZzIuY3JsMD2gO6A5hjdodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyQXNzdXJlZElEQ0EtZzIuY3JsMHkGCCsGAQUFBwEBBG0wazAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMEMGCCsGAQUFBzAChjdodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyQXNzdXJlZElEQ0EuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQCuOYPuakKB9qCCR7JYaA+92BprzqYFd1LwT62FrdzcPGupHix7ALoiw2jHuMQogrc3Rw0wZPUqgN29b2bcXX8r9B8OMVbxYL6VZGJ8P+WndUPOzbWdl7eAY/9HbkAUgcqzSP+BBcndCyKdR+bs43dYDNvhDzqL7hHgqjmxFxVz8C/25oLmBZ0yOXz5yLpVoTyHBl1OfAkrYj5WeQI8/uiR9bJ4SwY/NvUU+sOB/UJsxECjpmmdS26dYMRyLuFT7hZvmgv8L2wcjO6vyA9qm3kNb0dTJw1/xQG56pdaGRhdVEqp/L3/hW0COgQvOVdRNlVH9dU8cCl57ICj9rtxTrqg</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/plain</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="165417318">${counter_value}</stringProp>
+              <stringProp name="1362534940">99803990+${counter_value}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+            <stringProp name="DurationAssertion.duration">5000</stringProp>
+          </DurationAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename">response.jtl</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group- Consume" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1503383460000</longProp>
+        <longProp name="ThreadGroup.end_time">1503383460000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+          <stringProp name="CounterConfig.start">7500</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">5</stringProp>
+          <stringProp name="CounterConfig.name">counter_value</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+          <stringProp name="cacheKey"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import javax.jms.*;
+import javax.xml.parsers.ParserConfigurationException;
+import org.apache.commons.io.IOUtils;
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.command.ActiveMQTopic;
+import org.springframework.core.io.ClassPathResource;
+import javax.jms.*;
+
+String amount = ${counter_value};
+String currencyCode = &quot;INR&quot;;
+String accountNumber = &quot;17082017&quot;;
+String trxType = &quot;C&quot;;
+String bic = &quot;SCBLINBBXXX&quot;;
+String filepath = &quot;C:/Users/1571168.ZONE1-SCBNET/Desktop/rta-template.xml&quot;;
+DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+log.info(filepath);
+Document doc = docBuilder.parse(filepath);
+Node staff = doc.getElementsByTagName(&quot;notifyCorporateFinancialTransactionRequest&quot;).item(0);
+log.info(staff.toString());
+NodeList list = staff.getChildNodes();
+Node student = list.item(3);
+                log.info(student.toString());
+                NodeList list1 = student.getChildNodes();
+                Node trxnRequest = list1.item(5);
+                log.info(trxnRequest.toString());
+                NodeList list2 = trxnRequest.getChildNodes();
+                Node trxDetail = list2.item(1);
+                log.info(trxDetail.toString());
+                NodeList list3 = trxDetail.getChildNodes();
+                Node trxEntry = list3.item(1);
+                //System.out.println(student);
+                NodeList lists = trxEntry.getChildNodes();
+                for (int i = 0; i &lt; lists.getLength(); i++) {
+                    Node node = lists.item(i);
+                    // get the salary element, and update the value
+                    if (node.getNodeName().equals(&quot;tns:TrnAmount&quot;)) {
+                        
+                        node.setTextContent(&quot;&quot;+amount);
+                        System.out.println(node.getTextContent());
+                    }
+                    if (node.getNodeName().equals(&quot;tns:Account&quot;)) {
+                        NodeList accountList = node.getChildNodes();
+                        Node currencyCodeNode = accountList.item(1);
+                        currencyCodeNode.setTextContent(currencyCode);
+                        System.out.println(currencyCodeNode.getTextContent());
+                        Node accountNo = accountList.item(3);
+                        accountNo.setTextContent(accountNumber);
+                        System.out.println(accountNo.getTextContent());
+                    }
+                    if (node.getNodeName().equals(&quot;tns:CreditDebitFlag&quot;)) {
+                        node.setTextContent(trxType);
+                        System.out.println(node.getTextContent());
+                    }
+                    if (node.getNodeName().contains(&quot;tns:SwiftAddress&quot;)) {
+                        node.setTextContent(bic);
+                        System.out.println(node.getTextContent());
+                    }
+                }
+                TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                Transformer transformer = transformerFactory.newTransformer();
+                DOMSource source = new DOMSource(doc);
+                StreamResult result = new StreamResult(new File(filepath));
+                transformer.transform(source, result);
+log.info(&quot;before producer sent&quot;);
+            ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(&quot;tcp://10.23.210.60:61616&quot;);
+            Connection con = null;
+            con = connectionFactory.createConnection();
+            Session session = con.createSession(true, Session.AUTO_ACKNOWLEDGE);
+          
+            MessageProducer producer = session.createProducer(new ActiveMQTopic(&quot;scbCoreBankingTxnAlertCorpFinTxnNotifyV1T&quot;));
+		TextMessage txt = session.createTextMessage();
+        txt.setText(IOUtils.toString(new FileInputStream(new File(filepath))));
+        
+		producer.send(txt);
+		        log.info(&quot;after producer sent&quot;);
+            session.commit();
+            producer.close();
+            session.close();
+            con.close();
+      log.info(&quot;Message published&quot;);</stringProp>
+          <stringProp name="scriptLanguage">java</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Consume" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">uklvadapp006</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/cib/core/event/consume</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">JWTToken</stringProp>
+                <stringProp name="Header.value">eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJTQ0IiLCJhdWQiOiJTQ0ItQVBJQmFua2luZyIsImlhdCI6MTUwMjk0MTc5NywiZXhwIjozMDAwMDE1MDI5NDE3OTcsInBheWxvYWQiOnsiZW5hYmxlV2ViSG9vayI6InRydWUiLCJ3ZWJIb29rVXJsIjoiaHR0cDovLzE4LjIyMC4xNTYuMi93ZWJob29rIiwiYWN0aXZhdGlvbktleSI6eyJjb250ZW50IjoiZ2UyT2F5dWZNNnV2Z3ZZYzBWdkxlOTRTYmt5NzdveXJlenhSSzJpL3hocndkRitiQVZicldJcUNZeWFWYXpOZjRScWFlTkJhTkZNSW9BSGdZenhWTFYzdmRoNnVod2V3dGJHelpnNFo0RDVjd2dtZUtiZFpYd2tvOUNEMGE4S3F0TmRENDBVbkRVRU1NK0RZYVZtTlQ0c0dJMEI4K3pJZE0wVDFoVkE5NzdJVDYzYzJaYjNyR29EZGJZWG9xaGRmRWxLL2hJMU5NUDZzUXUzRWdXSlh5UEJjWnNrTkpoeDQ0WWkvV3BVSkNtaU5mcGliREJlWUllKzExNWEyTTJvZzdRcnlrQ0dVQ2RXdUwrYVlJYXlaT200eHgxZmFscUJvNE80NlVnaHp5bUNhN0pJc0lLN0pRMUdZK0RXbDRuN204V3NTVlRpOUVPaithTzlCT0dYeUtmZWdqRXNPcU8wZDlPVFlkbWpFRHNUWHlhWVlQV2JpcnpnYWcwcEJQVXdNaUZodFVOdE9ZSENSV3FVVDdEM1U5Qk81UDN2VmF4ajVjNHUxMHM1elRPR1BRd1d3S291QzBmS01sdldsTXByMDdJamd4djdlNDI5QkF6ZkdlVk1mekt4OGM4QUFWaWVXNndlQ2NYMVB2WlFOWE9FZTJHNmRpdzRyQ0lEQnpnRmwwdGpZVmRwUkhqZDJtWjRJakt1MklTMHE2bk9pNjRRYmVkQXNGckVMZUowYm5xZE9udGk5SnR5N3c0dk43ZWNuQUZVZTlGSHB6Vk9uMnAva0thSVQ3ZUxFUytkcVZ3Tk8vN3YyZkhsbnpyWlVWY3didXplbXdEek9HZXlCYUtCZnpSeVJERENGVFU4SkhueGtrZnArM25RNE5aOU9iQTVscHJWdis4VlhhdW5rWGcreGRRMGRiU3RkOXIzbTBwUjhkQVBOUGs5czFOYUtXRXdWUWpJVFZOelRvZTFlaWxobVpGRis0NEdMS0JFME1zaXI3WVZVV1pUbmtvcld2dzVHMjZkeU1DV3E0a2JwRUxkazczZjd5OU1ubDluM1phYzEwZ0pzcFNOcGJRWDBMTWd5MUwrdENyYlMrcnJRK0ZpZyIsImtleSI6IlpSU3IrSzVBcWR1QTZ3aVk2S21NSS9LTVE2d2NRem5HTzg1ZWJCVVZjdnlqOXZDVEpsRDdQdDNCdHlPUktPQ2grYnNLUi9iRVpBWlNqcG1OTzVlZ0JkRDBzZXdhNkRGaEpNQ0hENG1DS2hDT2RrQ2VreXlST2VtVHUycGx0cWNoNnUwc281a3F2TTBVYmVMcHF0RFRDZ3lKc3ZqdmVjTUNKK0MyZ1ZDZWJhc05lckVmZzM0UXN1ZUVSQlRiZlN6dFpMelVZRUtDaWI4Q2I4L0xtcFN3dFBxam5Nd1M1ckw5TkY2Q0kwS09vQVhtMXRCN0pUMFc1SXR1akNST3FJM2JGUTFlSDlIbzljeFAzWmt4cTJxc2RZYlNkS0phRnZ5eGlDeGQwRE8vOHphVjJoRzMxRStaSVFhTER0MHBORWtScEFaRHgrN1VpbWY5WHpyeXNJTENqQVx1MDAzZFx1MDAzZCJ9fX0.IvSNfIrsitDimWf9cfkCOnSEIYPxgU7o2LrUfdl026XqR7R_UM-SY24SwiOKaHuFFrggeeRQ8DLFhKGWcMiW1daadOxc_l1gY82U7Nerj6Y-9Wluz7Szdj_BmgplAqmAHrf2WvfQVTNnnbrID68cCw0K2fzPYT6ZKfFgGefYg86j6wF9FEeebSDm27l8d0_gB5JoPmDPkZPPLQzhIFByW294Ts1PeSxzLkhdP4dJ3ZvSK2BvNKzZQj8S-4aTB4C1O248cS8dFyUBxCjrCYld_XHOUi_76WkUZ2knAC8bVkXJTjIL3IRfQDs4k9Th50Qhma1-CnjAubTReK233zA0YA</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">X-Client-Certifcate</stringProp>
+                <stringProp name="Header.value">MIIFPDCCBCSgAwIBAgIQBhCY9/Oua9sbbZUiKb7/ETANBgkqhkiG9w0BAQsFADBlMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMSQwIgYDVQQDExtEaWdpQ2VydCBTSEEyIEFzc3VyZWQgSUQgQ0EwHhcNMTcwNTIzMDAwMDAwWhcNMTgwNTIzMTIwMDAwWjBXMQswCQYDVQQGEwJTRzESMBAGA1UEBxMJU2luZ2Fwb3JlMSAwHgYDVQQKExdTdGFuZGFyZCBDaGFydGVyZWQgQmFuazESMBAGA1UEAxMJQWNtZSBDb3JwMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx+79CIYpTbQdM93rnQe2y+gMCAZGKfwVuyT4xjYDmYfKr4+/6F2OUoVAP0wsS+EufaFOdwGRYD2Xcg8fH/jwp4dynekLNmO94et7pDBIQoHoyqUz5IfYIhbkwUV5zAjJEfrAlLXEfrBB+j8v6/DMWcYoFvXvq2mA/rZCr5S5L7RCKj17Tup6OpRasbohHADLwLx/gk/gaX7fAzV/4jETHw1zxRg9jT8WaPp+Qs3KeQlXqDEX6vpH12flHDl1dF+QfuKN5jlKG77yKsThglYwRTeaxrL3RgU8X6P8T1S5xpzGCIlE7RHFTpta1Hxn3oD59AvhQkQ8CkYyOWzt6GS6uQIDAQABo4IB9DCCAfAwHwYDVR0jBBgwFoAU5wIjgABP2Ne8lAvZP3Q5STI8inkwHQYDVR0OBBYEFIzxOlIwI/C/ktPcOkYtZA1XWTKrMAwGA1UdEwEB/wQCMAAwJgYDVR0RBB8wHYEbcHJhc2FubmEua2FuYWdhc2FiYWlAc2MuY29tMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwQwYDVR0gBDwwOjA4BgpghkgBhv1sBAECMCowKAYIKwYBBQUHAgEWHGh0dHBzOi8vd3d3LmRpZ2ljZXJ0LmNvbS9DUFMwgYgGA1UdHwSBgDB+MD2gO6A5hjdodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyQXNzdXJlZElEQ0EtZzIuY3JsMD2gO6A5hjdodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyQXNzdXJlZElEQ0EtZzIuY3JsMHkGCCsGAQUFBwEBBG0wazAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMEMGCCsGAQUFBzAChjdodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyQXNzdXJlZElEQ0EuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQCuOYPuakKB9qCCR7JYaA+92BprzqYFd1LwT62FrdzcPGupHix7ALoiw2jHuMQogrc3Rw0wZPUqgN29b2bcXX8r9B8OMVbxYL6VZGJ8P+WndUPOzbWdl7eAY/9HbkAUgcqzSP+BBcndCyKdR+bs43dYDNvhDzqL7hHgqjmxFxVz8C/25oLmBZ0yOXz5yLpVoTyHBl1OfAkrYj5WeQI8/uiR9bJ4SwY/NvUU+sOB/UJsxECjpmmdS26dYMRyLuFT7hZvmgv8L2wcjO6vyA9qm3kNb0dTJw1/xQG56pdaGRhdVEqp/L3/hW0COgQvOVdRNlVH9dU8cCl57ICj9rtxTrqg</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/plain</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="165417318">${counter_value}</stringProp>
+              <stringProp name="-225812962">99803990-${counter_value}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+            <stringProp name="DurationAssertion.duration">50</stringProp>
+          </DurationAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group -Recover" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1503383460000</longProp>
+        <longProp name="ThreadGroup.end_time">1503383460000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+          <stringProp name="CounterConfig.start">7500</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">5</stringProp>
+          <stringProp name="CounterConfig.name">counter_value</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+          <stringProp name="cacheKey"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import javax.jms.*;
+import javax.xml.parsers.ParserConfigurationException;
+import org.apache.commons.io.IOUtils;
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.command.ActiveMQTopic;
+import org.springframework.core.io.ClassPathResource;
+import javax.jms.*;
+
+String amount = ${counter_value};
+String currencyCode = &quot;INR&quot;;
+String accountNumber = &quot;17082017&quot;;
+String trxType = &quot;C&quot;;
+String bic = &quot;SCBLINBBXXX&quot;;
+String filepath = &quot;C:/Users/1571168.ZONE1-SCBNET/Desktop/rta-template.xml&quot;;
+DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+log.info(filepath);
+Document doc = docBuilder.parse(filepath);
+Node staff = doc.getElementsByTagName(&quot;notifyCorporateFinancialTransactionRequest&quot;).item(0);
+log.info(staff.toString());
+NodeList list = staff.getChildNodes();
+Node student = list.item(3);
+                log.info(student.toString());
+                NodeList list1 = student.getChildNodes();
+                Node trxnRequest = list1.item(5);
+                log.info(trxnRequest.toString());
+                NodeList list2 = trxnRequest.getChildNodes();
+                Node trxDetail = list2.item(1);
+                log.info(trxDetail.toString());
+                NodeList list3 = trxDetail.getChildNodes();
+                Node trxEntry = list3.item(1);
+                //System.out.println(student);
+                NodeList lists = trxEntry.getChildNodes();
+                for (int i = 0; i &lt; lists.getLength(); i++) {
+                    Node node = lists.item(i);
+                    // get the salary element, and update the value
+                    if (node.getNodeName().equals(&quot;tns:TrnAmount&quot;)) {
+                        
+                        node.setTextContent(&quot;&quot;+amount);
+                        System.out.println(node.getTextContent());
+                    }
+                    if (node.getNodeName().equals(&quot;tns:Account&quot;)) {
+                        NodeList accountList = node.getChildNodes();
+                        Node currencyCodeNode = accountList.item(1);
+                        currencyCodeNode.setTextContent(currencyCode);
+                        System.out.println(currencyCodeNode.getTextContent());
+                        Node accountNo = accountList.item(3);
+                        accountNo.setTextContent(accountNumber);
+                        System.out.println(accountNo.getTextContent());
+                    }
+                    if (node.getNodeName().equals(&quot;tns:CreditDebitFlag&quot;)) {
+                        node.setTextContent(trxType);
+                        System.out.println(node.getTextContent());
+                    }
+                    if (node.getNodeName().contains(&quot;tns:SwiftAddress&quot;)) {
+                        node.setTextContent(bic);
+                        System.out.println(node.getTextContent());
+                    }
+                }
+                TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                Transformer transformer = transformerFactory.newTransformer();
+                DOMSource source = new DOMSource(doc);
+                StreamResult result = new StreamResult(new File(filepath));
+                transformer.transform(source, result);
+log.info(&quot;before producer sent&quot;);
+            ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(&quot;tcp://10.23.210.60:61616&quot;);
+            Connection con = null;
+            con = connectionFactory.createConnection();
+            Session session = con.createSession(true, Session.AUTO_ACKNOWLEDGE);
+          
+            MessageProducer producer = session.createProducer(new ActiveMQTopic(&quot;scbCoreBankingTxnAlertCorpFinTxnNotifyV1T&quot;));
+		TextMessage txt = session.createTextMessage();
+        txt.setText(IOUtils.toString(new FileInputStream(new File(filepath))));
+        
+		producer.send(txt);
+		        log.info(&quot;after producer sent&quot;);
+            session.commit();
+            producer.close();
+            session.close();
+            con.close();
+      log.info(&quot;Message published&quot;);
+
+     </stringProp>
+          <stringProp name="scriptLanguage">java</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Recover" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">uklvadapp006</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/cib/core/event/recover</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">JWTToken</stringProp>
+                <stringProp name="Header.value">eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJTQ0IiLCJhdWQiOiJTQ0ItQVBJQmFua2luZyIsImlhdCI6MTUwMjk0MTc5NywiZXhwIjozMDAwMDE1MDI5NDE3OTcsInBheWxvYWQiOnsiZW5hYmxlV2ViSG9vayI6InRydWUiLCJ3ZWJIb29rVXJsIjoiaHR0cDovLzE4LjIyMC4xNTYuMi93ZWJob29rIiwiYWN0aXZhdGlvbktleSI6eyJjb250ZW50IjoiZ2UyT2F5dWZNNnV2Z3ZZYzBWdkxlOTRTYmt5NzdveXJlenhSSzJpL3hocndkRitiQVZicldJcUNZeWFWYXpOZjRScWFlTkJhTkZNSW9BSGdZenhWTFYzdmRoNnVod2V3dGJHelpnNFo0RDVjd2dtZUtiZFpYd2tvOUNEMGE4S3F0TmRENDBVbkRVRU1NK0RZYVZtTlQ0c0dJMEI4K3pJZE0wVDFoVkE5NzdJVDYzYzJaYjNyR29EZGJZWG9xaGRmRWxLL2hJMU5NUDZzUXUzRWdXSlh5UEJjWnNrTkpoeDQ0WWkvV3BVSkNtaU5mcGliREJlWUllKzExNWEyTTJvZzdRcnlrQ0dVQ2RXdUwrYVlJYXlaT200eHgxZmFscUJvNE80NlVnaHp5bUNhN0pJc0lLN0pRMUdZK0RXbDRuN204V3NTVlRpOUVPaithTzlCT0dYeUtmZWdqRXNPcU8wZDlPVFlkbWpFRHNUWHlhWVlQV2JpcnpnYWcwcEJQVXdNaUZodFVOdE9ZSENSV3FVVDdEM1U5Qk81UDN2VmF4ajVjNHUxMHM1elRPR1BRd1d3S291QzBmS01sdldsTXByMDdJamd4djdlNDI5QkF6ZkdlVk1mekt4OGM4QUFWaWVXNndlQ2NYMVB2WlFOWE9FZTJHNmRpdzRyQ0lEQnpnRmwwdGpZVmRwUkhqZDJtWjRJakt1MklTMHE2bk9pNjRRYmVkQXNGckVMZUowYm5xZE9udGk5SnR5N3c0dk43ZWNuQUZVZTlGSHB6Vk9uMnAva0thSVQ3ZUxFUytkcVZ3Tk8vN3YyZkhsbnpyWlVWY3didXplbXdEek9HZXlCYUtCZnpSeVJERENGVFU4SkhueGtrZnArM25RNE5aOU9iQTVscHJWdis4VlhhdW5rWGcreGRRMGRiU3RkOXIzbTBwUjhkQVBOUGs5czFOYUtXRXdWUWpJVFZOelRvZTFlaWxobVpGRis0NEdMS0JFME1zaXI3WVZVV1pUbmtvcld2dzVHMjZkeU1DV3E0a2JwRUxkazczZjd5OU1ubDluM1phYzEwZ0pzcFNOcGJRWDBMTWd5MUwrdENyYlMrcnJRK0ZpZyIsImtleSI6IlpSU3IrSzVBcWR1QTZ3aVk2S21NSS9LTVE2d2NRem5HTzg1ZWJCVVZjdnlqOXZDVEpsRDdQdDNCdHlPUktPQ2grYnNLUi9iRVpBWlNqcG1OTzVlZ0JkRDBzZXdhNkRGaEpNQ0hENG1DS2hDT2RrQ2VreXlST2VtVHUycGx0cWNoNnUwc281a3F2TTBVYmVMcHF0RFRDZ3lKc3ZqdmVjTUNKK0MyZ1ZDZWJhc05lckVmZzM0UXN1ZUVSQlRiZlN6dFpMelVZRUtDaWI4Q2I4L0xtcFN3dFBxam5Nd1M1ckw5TkY2Q0kwS09vQVhtMXRCN0pUMFc1SXR1akNST3FJM2JGUTFlSDlIbzljeFAzWmt4cTJxc2RZYlNkS0phRnZ5eGlDeGQwRE8vOHphVjJoRzMxRStaSVFhTER0MHBORWtScEFaRHgrN1VpbWY5WHpyeXNJTENqQVx1MDAzZFx1MDAzZCJ9fX0.IvSNfIrsitDimWf9cfkCOnSEIYPxgU7o2LrUfdl026XqR7R_UM-SY24SwiOKaHuFFrggeeRQ8DLFhKGWcMiW1daadOxc_l1gY82U7Nerj6Y-9Wluz7Szdj_BmgplAqmAHrf2WvfQVTNnnbrID68cCw0K2fzPYT6ZKfFgGefYg86j6wF9FEeebSDm27l8d0_gB5JoPmDPkZPPLQzhIFByW294Ts1PeSxzLkhdP4dJ3ZvSK2BvNKzZQj8S-4aTB4C1O248cS8dFyUBxCjrCYld_XHOUi_76WkUZ2knAC8bVkXJTjIL3IRfQDs4k9Th50Qhma1-CnjAubTReK233zA0YA</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">X-Client-Certifcate</stringProp>
+                <stringProp name="Header.value">MIIFPDCCBCSgAwIBAgIQBhCY9/Oua9sbbZUiKb7/ETANBgkqhkiG9w0BAQsFADBlMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMSQwIgYDVQQDExtEaWdpQ2VydCBTSEEyIEFzc3VyZWQgSUQgQ0EwHhcNMTcwNTIzMDAwMDAwWhcNMTgwNTIzMTIwMDAwWjBXMQswCQYDVQQGEwJTRzESMBAGA1UEBxMJU2luZ2Fwb3JlMSAwHgYDVQQKExdTdGFuZGFyZCBDaGFydGVyZWQgQmFuazESMBAGA1UEAxMJQWNtZSBDb3JwMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx+79CIYpTbQdM93rnQe2y+gMCAZGKfwVuyT4xjYDmYfKr4+/6F2OUoVAP0wsS+EufaFOdwGRYD2Xcg8fH/jwp4dynekLNmO94et7pDBIQoHoyqUz5IfYIhbkwUV5zAjJEfrAlLXEfrBB+j8v6/DMWcYoFvXvq2mA/rZCr5S5L7RCKj17Tup6OpRasbohHADLwLx/gk/gaX7fAzV/4jETHw1zxRg9jT8WaPp+Qs3KeQlXqDEX6vpH12flHDl1dF+QfuKN5jlKG77yKsThglYwRTeaxrL3RgU8X6P8T1S5xpzGCIlE7RHFTpta1Hxn3oD59AvhQkQ8CkYyOWzt6GS6uQIDAQABo4IB9DCCAfAwHwYDVR0jBBgwFoAU5wIjgABP2Ne8lAvZP3Q5STI8inkwHQYDVR0OBBYEFIzxOlIwI/C/ktPcOkYtZA1XWTKrMAwGA1UdEwEB/wQCMAAwJgYDVR0RBB8wHYEbcHJhc2FubmEua2FuYWdhc2FiYWlAc2MuY29tMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwQwYDVR0gBDwwOjA4BgpghkgBhv1sBAECMCowKAYIKwYBBQUHAgEWHGh0dHBzOi8vd3d3LmRpZ2ljZXJ0LmNvbS9DUFMwgYgGA1UdHwSBgDB+MD2gO6A5hjdodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyQXNzdXJlZElEQ0EtZzIuY3JsMD2gO6A5hjdodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyQXNzdXJlZElEQ0EtZzIuY3JsMHkGCCsGAQUFBwEBBG0wazAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMEMGCCsGAQUFBzAChjdodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyQXNzdXJlZElEQ0EuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQCuOYPuakKB9qCCR7JYaA+92BprzqYFd1LwT62FrdzcPGupHix7ALoiw2jHuMQogrc3Rw0wZPUqgN29b2bcXX8r9B8OMVbxYL6VZGJ8P+WndUPOzbWdl7eAY/9HbkAUgcqzSP+BBcndCyKdR+bs43dYDNvhDzqL7hHgqjmxFxVz8C/25oLmBZ0yOXz5yLpVoTyHBl1OfAkrYj5WeQI8/uiR9bJ4SwY/NvUU+sOB/UJsxECjpmmdS26dYMRyLuFT7hZvmgv8L2wcjO6vyA9qm3kNb0dTJw1/xQG56pdaGRhdVEqp/L3/hW0COgQvOVdRNlVH9dU8cCl57ICj9rtxTrqg</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/plain</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1362534940">99803990+${counter_value}</stringProp>
+              <stringProp name="165417318">${counter_value}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+            <stringProp name="DurationAssertion.duration">50</stringProp>
+          </DurationAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
