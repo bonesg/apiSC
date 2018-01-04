@@ -1,0 +1,52 @@
+<upi:ReqBalEnq xmlns:upi="http://npci.org/upi/schema/">
+<Head ver="1.0" ts="" orgId="" msgId=""/>
+<Txn id="" note="" ref="" ts="" type="">
+<RiskScores>
+<Score provider="sp" type="TXNRISK" value=""/>
+<Score provider="NPCI" type="TXNRISK" value=""/>
+</RiskScores>
+</Txn>
+<Payer addr="" name="" seqNum="" type="PERSON|ENTITY" code="">
+<Info>
+<Identity type="PAN|AADHAAR|ACCOUNT" verifiedName="" />
+<Rating VerifiedAddress="TRUE|FALSE"/>
+</Info>
+<Device>
+<Tag name="MOBILE" value=""/>
+<Tag name="GEOCODE" value=""/>
+<Tag name="LOCATION" value="" />
+<Tag name="IP" value=""/>
+<Tag name="TYPE" value=""/>
+<Tag name="ID" value=""/>
+<Tag name="OS" value=""/>
+<Tag name="APP" value=""/>
+<Tag name="CAPABILITY" value=""/>
+</Device>
+<Ac addrType ="AADHAAR">
+<Detail name="IIN" value=""/>
+<Detail name="UIDNUM" value=""/>
+</Ac>
+<Ac addrType="ACCOUNT">
+<Detail name="IFSC" value=""/>
+<Detail name="ACTYPE" value="SAVINGS|CURRENT|DEFAULT"/>
+<Detail name="ACNUM" value=""/>
+</Ac>
+<Ac addrType ="MOBILE">
+<Detail name="MMID" value=""/>
+<Detail name="MOBNUM" value=""/>
+</Ac>
+<Ac addrType ="CARD">
+<Detail name="ACTYPE" value="SAVINGS|CURRENT"/>
+<Detail name="CARDNUM" value=""/>
+</Ac>
+<Creds>
+<Cred type="AADHAAR" subtype="IIR|FMR|FIR|OTP">
+<Data> base-64 encoded/encrypted authentication data</Data>
+</Cred>
+<Cred type="OTP" subtype="SMS|EMAIL|HOTP|TOTP">
+<Data> base-64 encoded/encrypted authentication data</Data>
+</Cred>
+<Cred type="PIN" subtype="MPIN">
+<Data> base-64 encoded/encrypted authentication data</Data>
+</Payer>
+</upi:ReqBalEnq>
