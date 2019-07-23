@@ -1,0 +1,1 @@
+{"amount":{"currencyCode":"HKD","amount":"134450.00"},"countryCode":"HK","merchantCity":"Hong Kong","billNumber":"987654321B","referenceLabel":"123456789L","storeLabel":"API Store","merchantName":"FpsTestOrg","proxyType":"FpsId","proxyValue":"FPS12345678","expiryDateTime":"2020-03-19T06:31:46.175Z"}
